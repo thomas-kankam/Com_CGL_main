@@ -1,0 +1,24 @@
+#square{
+    background-color: red;  
+}
+
+#square2{
+    background-color: blue;
+}
+
+#square3{
+    background-color: green;
+    margin-left: 60px;
+}
+
+#square4{
+    background-color: orange;
+}
+
+.button_under > button{
+    display: inline-flex;
+    margin-left: 150px;
+    text-align: j;
+}
+   
+
