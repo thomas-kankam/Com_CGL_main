@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-26">
-                        <span class="label-input100">Email</span>
+                        <span class="label-input100">Work Email</span>
                         <input type="email" class="input100" name="email" value="{{ old('email') }}" required
                             autocomplete="email" placeholder="Enter email" autofocus>
                         <span class="focus-input100"></span>

@@ -26,3 +26,20 @@ Route::middleware("guest")->group(function () {
 Route::middleware(['web', 'auth'])->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
 });
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
+
+// Routes for admin
+Route::middleware('role:admin')->group(function () {
+    // Routes accessible to admins only
+    Route::get('/dashboard', [AdminController::class, 'dashboard']);
+    // Add more admin-specific routes here
+});
+
+// Routes for clients
+Route::middleware('role:client')->group(function () {
+    // Routes accessible to clients only
+    Route::get('/dashboard', [ClientController::class, 'dashboard']);
+    // Add more client-specific routes here
+});
