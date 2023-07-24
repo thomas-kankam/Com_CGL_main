@@ -1,24 +1,33 @@
+
 #square{
-    background-color: red;  
+    background-color:blue;
+    border:1px solid black ;  
+    
 }
 
 #square2{
     background-color: blue;
+    border:1px solid black ;
 }
 
 #square3{
-    background-color: green;
-    margin-left: 60px;
+    background-color: blue;
+    border:1px solid black ;
 }
 
 #square4{
-    background-color: orange;
+    background-color:blue;
+    border:1px solid black ;
 }
+
+
+
+
+
 
 .button_under > button{
     display: inline-flex;
     margin-left: 150px;
-    text-align: j;
 }
    
 
