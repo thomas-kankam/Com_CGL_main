@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -21,20 +23,21 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/dashboard'; // The default redirect path after login
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function authenticated($request)
+    {
+        // Check the user's role(s) and redirect accordingly
+        if (User::where('id', Auth::id())->where('role', 'Super Administrator')->exists()) {
+            return redirect()->route('home');
+        }
+        if (User::where('id', Auth::id())->where('role', 'Administrator')->exists()) {
+            return redirect()->route('crud');
+        }
     }
 }

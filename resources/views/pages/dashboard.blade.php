@@ -27,6 +27,15 @@
             <!-- Three charts -->
             <!-- ============================================================== -->
             <div class="row justify-content-center">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="col-lg-4 col-md-12">
                     <div class="white-box analytics-info">
                         <h3 class="box-title">Total Users</h3>
@@ -49,7 +58,7 @@
                                         style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                 </div>
                             </li>
-                            <li class="ms-auto"><span class="counter text-purple">564</span></li>
+                            <li class="ms-auto"><span class="counter text-purple">{{ $monthlyCount }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -62,7 +71,7 @@
                                         style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                 </div>
                             </li>
-                            <li class="ms-auto"><span class="counter text-info">16</span>
+                            <li class="ms-auto"><span class="counter text-info">{{ $dailyCount }}</span>
                             </li>
                         </ul>
                     </div>
@@ -117,54 +126,41 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td class="txt-oflo">Core Change</td>
-                                        <td>Mataheko</td>
-                                        <td class="txt-oflo">
-                                            <canvas id="square" width="20px" height="20px"> </canvas>
-                                            <canvas id="square2" width="20px" height="20px"> </canvas>
-                                            <canvas id="square3" width="20px" height="20px"> </canvas>
-                                            <canvas id="square4" width="20px" height="20px"> </canvas>
-                                        </td>
-                                        <td><span class="text">kelvinamenya@comsysghana.com</span></td>
-                                        <td><span class="text-success">12:30</span></td>
-                                        <td><button class="btn-info">View</button>
-                                            <button class="btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td class="txt-oflo">Core Change</td>
-                                        <td>Mataheko</td>
-                                        <td class="txt-oflo">
-                                            <canvas id="square" width="20px" height="20px"> </canvas>
-                                            <canvas id="square2" width="20px" height="20px"> </canvas>
-                                            <canvas id="square3" width="20px" height="20px"> </canvas>
-                                            <canvas id="square4" width="20px" height="20px"> </canvas>
-                                        </td>
-                                        <td><span class="text">kelvinamenya@comsysghana.com</span></td>
-                                        <td><span class="text-success">12:30</span></td>
-                                        <td><button class="btn-info">View</button>
-                                            <button class="btn-danger text-white">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td class="txt-oflo">Core Change</td>
-                                        <td>Mataheko</td>
-                                        <td class="txt-oflo">
-                                            <canvas id="square" width="20px" height="20px"> </canvas>
-                                            <canvas id="square2" width="20px" height="20px"> </canvas>
-                                            <canvas id="square3" width="20px" height="20px"> </canvas>
-                                            <canvas id="square4" width="20px" height="20px"> </canvas>
-                                        </td>
-                                        <td><span class="text">kelvinamenya@comsysghana.com</span></td>
-                                        <td><span class="text-success">12:30</span></td>
-                                        <td><button class="btn-info">View</button>
-                                            <button class="btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
+                                    @foreach ($entities as $entity)
+                                        {{-- <tr>
+                                            <td class="id">{{ $user->id }}</td>
+                                            <td class="name">{{ $user->name }}</td>
+                                            <td class="email">{{ $user->email }}</td>
+                                            <td class="role">{{ $user->role }}</td>
+                                            <td class="contact">{{ $user->contact }}</td>
+                                            <td class="job">{{ $user->job }}</td>
+                                        </tr> --}}
+
+                                        <tr>
+                                            <td class="id">{{ $entity->id }}</td>
+                                            <td class="txt-oflo">{{ $entity->action }}</td>
+                                            <td>{{ $entity->location }}</td>
+                                            <td class="txt-oflo">
+                                                <canvas id="square" width="20px" height="20px">
+                                                    {{ $entity->incoming_buffer }}</canvas>
+                                                <canvas id="square2" width="20px"
+                                                    height="20px">{{ $entity->incoming_core }}
+                                                </canvas>
+                                                <canvas id="square3" width="20px"
+                                                    height="20px">{{ $entity->outgoing_buffer }} </canvas>
+                                                <canvas id="square4" width="20px" height="20px">
+                                                    {{ $entity->outgoing_core }}</canvas>
+                                            </td>
+                                            <td><span class="text">{{ $entity->email }}</span></td>
+                                            <td><span
+                                                    class="text-success">{{ $entity->created_at->diffForHumans() }}</span>
+                                            </td>
+                                            <td><a href="{{ route('view-entity', $entity->id) }}"><button
+                                                        class="btn-info">View</button></a>
+                                                <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -176,174 +172,30 @@
             <!-- ============================================================== -->
             <div class="row">
                 <!-- .col -->
-                <div class="col-md-12 col-lg-8 col-sm-12">
+                <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="card white-box p-0">
                         <div class="card-body">
                             <h3 class="box-title mb-0">Recent Comments</h3>
                         </div>
-                        <div class="comment-widgets">
+                        {{-- <div class="comment-widgets">
                             <!-- Comment Row -->
-                            <div class="d-flex flex-row comment-row p-3 mt-0">
-                                <div class="p-2"><img src="../plugins/images/users/varun.jpg" alt="user"
-                                        width="50" class="rounded-circle"></div>
-                                <div class="comment-text ps-2 ps-md-3 w-100">
-                                    <h5 class="font-medium">Roland Bansah</h5>
-                                    <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and
-                                        type setting industry.It has survived not only five centuries. </span>
-                                    <div class="comment-footer d-md-flex align-items-center">
-                                        <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">April 14, 2021</div>
+                            @foreach ($entries as $comment)
+                                <div class="d-flex flex-row comment-row p-3">
+                                    <div class="p-2"><img src="../plugins/images/users/ritesh.jpg" alt="user"
+                                            width="50" class="rounded-circle"></div>
+                                    <div class="comment-text ps-2 ps-md-3 w-100">
+                                        <h5 class="font-medium">{{ $comment->user->email }}</h5>
+                                        <span class="mb-3 d-block">{{ $comment->other }}</span>
+                                        <div class="comment-footer d-md-flex align-items-center">
+                                            <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">
+                                                {{ $entry->created_at->format('F d, Y') }}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Comment Row -->
-                            <div class="d-flex flex-row comment-row p-3">
-                                <div class="p-2"><img src="../plugins/images/users/genu.jpg" alt="user"
-                                        width="50" class="rounded-circle"></div>
-                                <div class="comment-text ps-2 ps-md-3 active w-100">
-                                    <h5 class="font-medium">Augustine Adu-Twum </h5>
-                                    <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and
-                                        type setting industry.It has survived not only five centuries. </span>
-                                    <div class="comment-footer d-md-flex align-items-center">
-
-                                        <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">April 14, 2021</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Comment Row -->
-                            <div class="d-flex flex-row comment-row p-3">
-                                <div class="p-2"><img src="../plugins/images/users/ritesh.jpg" alt="user"
-                                        width="50" class="rounded-circle"></div>
-                                <div class="comment-text ps-2 ps-md-3 w-100">
-                                    <h5 class="font-medium">Kojo Leggs Kusi</h5>
-                                    <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and
-                                        type setting industry.It has survived not only five centuries. </span>
-                                    <div class="comment-footer d-md-flex align-items-center">
-
-
-
-                                        <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">April 14, 2021</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        </div> --}}
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="card white-box p-0">
-                        <div class="card-heading">
-                            <h3 class="box-title mb-0">Reports</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul class="chatonline">
-                                <li>
-                                    <div class="call-chat">
-                                        <button class="btn btn-success text-white btn-circle btn" type="button">
-                                            <i class="fas fa-phone"></i>
-                                        </button>
-                                        <button class="btn btn-info btn-circle btn" type="button">
-                                            <i class="far fa-comments text-white"></i>
-                                        </button>
-                                    </div>
-                                    <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                            src="../plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
-                                        <div class="ms-2">
-                                            <span class="text-dark">Varun Dhavan <br><span
-                                                    class="info badge rounded bg-danger">Critical</span></span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="call-chat">
-                                        <button class="btn btn-success text-white btn-circle btn" type="button">
-                                            <i class="fas fa-phone"></i>
-                                        </button>
-                                        <button class="btn btn-info btn-circle btn" type="button">
-                                            <i class="far fa-comments text-white"></i>
-                                        </button>
-                                    </div>
-                                    <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                            src="../plugins/images/users/genu.jpg" alt="user-img" class="img-circle">
-                                        <div class="ms-2">
-                                            <span class="text-dark">Genelia
-                                                Deshmukh <br> <span
-                                                    class="info badge rounded bg-success">Minor</span></span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="call-chat">
-                                        <button class="btn btn-success text-white btn-circle btn" type="button">
-                                            <i class="fas fa-phone"></i>
-                                        </button>
-                                        <button class="btn btn-info btn-circle btn" type="button">
-                                            <i class="far fa-comments text-white"></i>
-                                        </button>
-                                    </div>
-                                    <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                            src="../plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle">
-                                        <div class="ms-2">
-                                            <span class="text-dark">Ritesh
-                                                Deshmukh <br><span
-                                                    class="info badge rounded bg-danger">Critical</span></span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="call-chat">
-                                        <button class="btn btn-success text-white btn-circle btn" type="button">
-                                            <i class="fas fa-phone"></i>
-                                        </button>
-                                        <button class="btn btn-info btn-circle btn" type="button">
-                                            <i class="far fa-comments text-white"></i>
-                                        </button>
-                                    </div>
-                                    <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                            src="../plugins/images/users/arijit.jpg" alt="user-img" class="img-circle">
-                                        <div class="ms-2">
-                                            <span class="text-dark">Arijit
-                                                Sinh <br><span class="info badge rounded bg-danger">Critical</span></span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="call-chat">
-                                        <button class="btn btn-success text-white btn-circle btn" type="button">
-                                            <i class="fas fa-phone"></i>
-                                        </button>
-                                        <button class="btn btn-info btn-circle btn" type="button">
-                                            <i class="far fa-comments text-white"></i>
-                                        </button>
-                                    </div>
-                                    <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                            src="../plugins/images/users/govinda.jpg" alt="user-img" class="img-circle">
-                                        <div class="ms-2">
-                                            <span class="text-dark">Govinda
-                                                Star <br><span class="info badge rounded bg-success">Critical</span></span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="call-chat">
-                                        <button class="btn btn-success text-white btn-circle btn" type="button">
-                                            <i class="fas fa-phone"></i>
-                                        </button>
-                                        <button class="btn btn-info btn-circle btn" type="button">
-                                            <i class="far fa-comments text-white"></i>
-                                        </button>
-                                    </div>
-                                    <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                            src="../plugins/images/users/hritik.jpg" alt="user-img" class="img-circle">
-                                        <div class="ms-2">
-                                            <span class="text-dark">John
-                                                Abraham<br><span class="info badge rounded bg-info">Critical</span></span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col -->
             </div>
         </div>
         <!-- ============================================================== -->

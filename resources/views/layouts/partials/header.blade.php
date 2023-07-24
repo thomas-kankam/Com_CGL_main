@@ -56,17 +56,6 @@
                         <img src="{{ asset('assets/plugins/images/users/varun.jpg') }}" width="36"
                             class="img-circle"><span class="text-white font-medium">{{ Auth::user()->name }}</span></a>
                 </li>
-
-                <li>
-                    <a href="/logout" class="d-flex align-items-start text-center"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <span class="text-white font-medium align-items">Logout</span>
-                    </a>
-
-                    <form id="logout-form" method="POST" action="/logout">
-                        @csrf
-                    </form>
-                </li>
                 <!-- ============================================================== -->
                 <!-- User profile and search -->
                 <!-- ============================================================== -->

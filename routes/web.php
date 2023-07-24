@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,22 +27,34 @@ Route::middleware("guest")->group(function () {
 });
 
 Route::middleware(['web', 'auth'])->group(function () {
-    Route::get('home', [HomeController::class, 'index'])->name('home');
-});
+    // route to admin dashboard
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ClientController;
+    // View profile page and Edit profile
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
-// Routes for admin
-Route::middleware('role:admin')->group(function () {
-    // Routes accessible to admins only
-    Route::get('/dashboard', [AdminController::class, 'dashboard']);
-    // Add more admin-specific routes here
-});
+    // Create Entry and post to database
+    Route::get('create', [HomeController::class, 'create'])->name('create');
+    Route::post('create-entity', [HomeController::class, 'createEntity'])->name('create-entity');
 
-// Routes for clients
-Route::middleware('role:client')->group(function () {
-    // Routes accessible to clients only
-    Route::get('/dashboard', [ClientController::class, 'dashboard']);
-    // Add more client-specific routes here
+    // users list, Show create users, Add Users
+    Route::get('users', [UserController::class, 'index'])->name('users');
+    Route::get('show-user', [UserController::class, 'show'])->name('show-user');
+    Route::post('create-user', [UserController::class, 'create'])->name('create-user');
+
+    // Show crud page
+    Route::get('crud', [HomeController::class, 'crud'])->name('crud');
+
+    // Show entry show page
+    Route::get('entry-show', [HomeController::class, 'entryShow'])->name('entry-show');
+
+    // Show entity view
+    Route::get('/entity-view/{id}', [HomeController::class, 'viewEntity'])->name('view-entity');
+
+    Route::delete('/entity-destroy/{id}', [HomeController::class, 'destroyEntity'])->name('entity.destroy');
+
+    // Update entry
+    Route::get('show-entry', [HomeController::class, 'showEntry'])->name('show-entry');
+    Route::put('update-entry', [HomeController::class, 'updateEntry'])->name('update-entry');
 });

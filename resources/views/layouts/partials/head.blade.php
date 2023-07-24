@@ -24,5 +24,11 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.min.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" /> --}}
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/plugins/images/comsys.png') }}" />
     <!--===============================================================================================-->
 </head>

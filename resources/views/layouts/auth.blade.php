@@ -16,56 +16,112 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
-                        <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                aria-expanded="false">
-                                <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Profile</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Basic Table</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Icon</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                aria-expanded="false">
-                                <i class="fa fa-globe" aria-hidden="true"></i>
-                                <span class="hide-menu">Google Map</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                aria-expanded="false">
-                                <i class="fa fa-columns" aria-hidden="true"></i>
-                                <span class="hide-menu">Blank Page</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                aria-expanded="false">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                <span class="hide-menu">Error 404</span>
-                            </a>
-                        </li>
-
+                        @if (Auth::check())
+                            @if (Auth::user()->role == 'Super Administrator')
+                                <li class="sidebar-item pt-2">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard"
+                                        aria-expanded="false">
+                                        <i class="far fa-clock" aria-hidden="true"></i>
+                                        <span class="hide-menu">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/profile"
+                                        aria-expanded="false">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span class="hide-menu">Profile</span>
+                                    </a>
+                                </li>
+                                {{-- <li class="sidebar-item">
+                                    <a cla.ss="sidebar-link waves-effect waves-dark sidebar-link" href="#"
+                                        aria-expanded="false">
+                                        <i class="fa fa-table" aria-hidden="true"></i>
+                                        <span class="hide-menu">View Table</span>
+                                    </a>
+                                </li> --}}
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/create"
+                                        aria-expanded="false">
+                                        <i class="fa fa-font" aria-hidden="true"></i>
+                                        <span class="hide-menu">Create Entry</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/entry-show"
+                                        aria-expanded="false">
+                                        <i class="fa fa-font" aria-hidden="true"></i>
+                                        <span class="hide-menu">View Entries</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/users"
+                                        aria-expanded="false">
+                                        <i class="fa fa-columns" aria-hidden="true"></i>
+                                        <span class="hide-menu">Users List</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/logout"
+                                        aria-expanded="false" onclick="logout()"">
+                                        <i class="fa fa-columns" aria-hidden="true"></i>
+                                        <span class="hide-menu">Logout</span>
+                                    </a>
+                                </li>
+                            @else
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/crud"
+                                        aria-expanded="false">
+                                        <i class="fa fa-table" aria-hidden="true"></i>
+                                        <span class="hide-menu">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/create"
+                                        aria-expanded="false">
+                                        <i class="fa fa-font" aria-hidden="true"></i>
+                                        <span class="hide-menu">Create Entry</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
+                                        aria-expanded="false">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                        <span class="hide-menu">Update</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
+                                        aria-expanded="false">
+                                        <i class="fa fa-columns" aria-hidden="true"></i>
+                                        <span class="hide-menu">View Entry</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/profile"
+                                        aria-expanded="false">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span class="hide-menu">Profile</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/users"
+                                        aria-expanded="false">
+                                        <i class="fa fa-columns" aria-hidden="true"></i>
+                                        <span class="hide-menu">Users List</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/logout"
+                                        aria-expanded="false" onclick="logout()">
+                                        <i class="fa fa-columns" aria-hidden="true"></i>
+                                        <span class="hide-menu">Logout</span>
+                                    </a>
+                                </li>
+                            @endif
+                        @endif
+                        <form id="logout-form" method="POST" action="/logout">
+                            @csrf
+                        </form>
                     </ul>
 
                 </nav>
@@ -77,6 +133,45 @@
         @yield('content')
     </div>
     @include('layouts.partials.auth-script')
+    <script>
+        function changeColor(event) {
+            var color = event.value;
+            var canvas = document.getElementById('square'); // Change 'square' to the actual ID of the canvas element
+            canvas.style.backgroundColor = color;
+        }
+    </script>
+    <script>
+        function changeColor2(event) {
+            var color = event.value;
+            var canvas = document.getElementById('square2'); // Change 'square' to the actual ID of the canvas element
+            canvas.style.backgroundColor = color;
+        }
+    </script>
+    <script>
+        function changeColor3(event) {
+            var color = event.value;
+            var canvas = document.getElementById('square3'); // Change 'square' to the actual ID of the canvas element
+            canvas.style.backgroundColor = color;
+        }
+    </script>
+    <script>
+        function changeColor4(event) {
+            var color = event.value;
+            var canvas = document.getElementById('square4'); // Change 'square' to the actual ID of the canvas element
+            canvas.style.backgroundColor = color;
+        }
+    </script>
+
+    <script>
+        // Get all canvas elements
+        const canvasElements = document.querySelectorAll('canvas');
+
+        // Loop through each canvas element and set the background color
+        canvasElements.forEach(canvas => {
+            const colorCode = canvas.getAttribute('data-color');
+            canvas.style.backgroundColor = colorCode;
+        });
+    </script>
 </body>
 
 </html>
