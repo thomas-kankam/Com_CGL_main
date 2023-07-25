@@ -32,22 +32,16 @@
                                         <span class="hide-menu">Profile</span>
                                     </a>
                                 </li>
-                                {{-- <li class="sidebar-item">
-                                    <a cla.ss="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                        aria-expanded="false">
-                                        <i class="fa fa-table" aria-hidden="true"></i>
-                                        <span class="hide-menu">View Table</span>
-                                    </a>
-                                </li> --}}
+
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/create"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('entry.create') }}" aria-expanded="false">
                                         <i class="fa fa-font" aria-hidden="true"></i>
                                         <span class="hide-menu">Create Entry</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/entry-show"
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/entry"
                                         aria-expanded="false">
                                         <i class="fa fa-font" aria-hidden="true"></i>
                                         <span class="hide-menu">View Entries</span>

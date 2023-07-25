@@ -14,6 +14,7 @@ class Entry extends Model
         'action',
         'other',
         'user_id', // 'user_id' is the foreign key
+        'user_email',
         'location',
         'incoming_cable',
         'incoming_buffer',

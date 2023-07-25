@@ -7,6 +7,12 @@
             <!-- ============================================================== -->
             <!-- RECENT CHANGES -->
             <!-- ============================================================== -->
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <b>{{ session('success') }}</b>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="white-box">
@@ -42,28 +48,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($entities as $entity)
+                                    @foreach ($entries as $entry)
                                         <tr>
-                                            <td class="id">{{ $entity->id }}</td>
-                                            <td class="txt-oflo">{{ $entity->action }}</td>
-                                            <td>{{ $entity->location }}</td>
+                                            <td class="id">{{ $entry->id }}</td>
+                                            <td class="txt-oflo">{{ $entry->action }}</td>
+                                            <td>{{ $entry->location }}</td>
                                             <td class="txt-oflo">
                                                 <canvas id="square" width="20px" height="20px">
-                                                    {{ $entity->incoming_buffer }}</canvas>
+                                                    {{ $entry->incoming_buffer }}</canvas>
                                                 <canvas id="square2" width="20px"
-                                                    height="20px">{{ $entity->incoming_core }}
+                                                    height="20px">{{ $entry->incoming_core }}
                                                 </canvas>
                                                 <canvas id="square3" width="20px"
-                                                    height="20px">{{ $entity->outgoing_buffer }} </canvas>
+                                                    height="20px">{{ $entry->outgoing_buffer }} </canvas>
                                                 <canvas id="square4" width="20px" height="20px">
-                                                    {{ $entity->outgoing_core }}</canvas>
+                                                    {{ $entry->outgoing_core }}</canvas>
                                             </td>
-                                            <td><span class="text">{{ $entity->email }}</span></td>
-                                            <td><span class="text-success">{{ $entity->created_at->diffForHumans() }}</span>
+                                            <td><span class="text">{{ $entry->user_email }}</span></td>
+                                            <td><span class="text-success">{{ $entry->created_at->diffForHumans() }}</span>
                                             </td>
-                                            <td><a href="{{ route('view-entity', $entity->id) }}"><button
+                                            <td><a href="{{ route('entry.edit', $entry->id) }}"><button
                                                         class="btn-info">View</button></a>
-                                                <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
+                                                <button class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#deleteModal" onclick="handleDelete({{ $entry->id }})">
+                                                    Delete
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -72,6 +81,40 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form action="" method="POST" id="deleteCategoryForm">
+                        @csrf
+                        @method('DELETE')
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <p class="text-bold">
+                                    Are you sure you want to delete this record ?
+                                </p>
+                            </div>
+
+                            <div class="modal-footer">
+                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Go back</button> --}}
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
             </div>
         </div>
     </div>

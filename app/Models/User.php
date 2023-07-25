@@ -26,6 +26,8 @@ class User extends Authenticatable
         'contact',
         'description',
         'job',
+        'email_verified_at',
+        'remember_token',
     ];
 
     /**

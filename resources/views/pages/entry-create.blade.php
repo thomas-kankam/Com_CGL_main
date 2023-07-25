@@ -35,8 +35,17 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <form class="validate-form p-l-5 p-r-5 " autocomplete="on" method="POST"
-                                    action="{{ route('create-entity') }}">
+                                    action="{{ route('entry.store') }}">
                                     @csrf
                                     <span class="login100-form-title text-white p-b-9">
                                         CREATE

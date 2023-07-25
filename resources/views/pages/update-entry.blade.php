@@ -10,15 +10,15 @@
                     <h4 class="page-title">Create Entry</h4>
                 </div>
                 <!--  <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                        <div class="d-md-flex">
-                            <ol class="breadcrumb ms-auto">
-                                <li><a href="#" class="fw-normal">Dashboard</a></li>
-                            </ol>
-                            <a href="" target="_blank"
-                                class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
-                                to Pro</a>
-                        </div>
-                    </div> -->
+                            <div class="d-md-flex">
+                                <ol class="breadcrumb ms-auto">
+                                    <li><a href="#" class="fw-normal">Dashboard</a></li>
+                                </ol>
+                                <a href="" target="_blank"
+                                    class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
+                                    to Pro</a>
+                            </div>
+                        </div> -->
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -43,6 +43,15 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form class=" validate-form p-l-5 p-r-5 ">
                                 <span class="login100-form-title text-white p-b-9">
                                     UPDATE
