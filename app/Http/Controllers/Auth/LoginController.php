@@ -23,21 +23,23 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/dashboard'; // The default redirect path after login
+    protected $redirectTo = 'dashboard'; // The default redirect path after login
 
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
-    protected function authenticated($request)
+    protected function  redirectTo()
     {
         // Check the user's role(s) and redirect accordingly
-        if (User::where('id', Auth::id())->where('role', 'Super Administrator')->exists()) {
-            return redirect()->route('home');
+        if (Auth::user()->role == 'Super Administrator') {
+            return route('dashboard'); // Change this to the appropriate route for Super Admin
         }
-        if (User::where('id', Auth::id())->where('role', 'Administrator')->exists()) {
-            return redirect()->route('crud');
+        if (Auth::user()->role == 'Engineer') {
+            return route('engineer.index'); // Change this to the appropriate route for Engineer
         }
+
+        return $this->redirectTo; // Fallback to the default redirect path
     }
 }

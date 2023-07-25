@@ -37,19 +37,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($entities as $entity)
+                                    @foreach ($entries as $entry)
                                         <tr>
-                                            <td class="id">{{ $entity->id }}</td>
-                                            <td class="txt-oflo">{{ $entity->action }}</td>
-                                            <td>{{ $entity->location }}</td>
+                                            <td class="id">{{ $entry->id }}</td>
+                                            <td class="txt-oflo">{{ $entry->action }}</td>
+                                            <td>{{ $entry->location }}</td>
                                             <td class="txt-oflo">
                                                 <canvas id="square" width="20px" height="20px"> </canvas>
                                                 <canvas id="square2" width="20px" height="20px"> </canvas>
                                                 <canvas id="square3" width="20px" height="20px"> </canvas>
                                                 <canvas id="square4" width="20px" height="20px"> </canvas>
                                             </td>
-                                            <td><span class="text">{{ $entity->email }}</span></td>
-                                            <td><span class="text-success">{{ $entity->created_at->diffForHumans() }}</span>
+                                            <td><span class="text">{{ $entry->email }}</span></td>
+                                            <td><span class="text-success">{{ $entry->created_at->diffForHumans() }}</span>
                                             </td>
                                             <td><a href="view-entry"><button class="btn-info">View</button></a>
                                                 <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
@@ -61,7 +61,7 @@
                             <div class="button_under">
                                 <button class="btn-rounded btn-success text-white"><a href="/create"
                                         class="text-white">Create</a></button>
-                                <button class="btn-rounded btn-info text-white"><a href="/entity-view/"
+                                <button class="btn-rounded btn-info text-white"><a href="/entry-view/"
                                         class="text-white">View</a></button>
                                 <button class="btn-rounded btn-danger text-white"><a href="/create"
                                         class="text-white">Delete</a></button>

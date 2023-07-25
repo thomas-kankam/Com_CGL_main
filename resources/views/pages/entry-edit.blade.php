@@ -43,104 +43,104 @@
                                 </span>
                                 <fieldset>
                                     <div class="mb-3">
-                                        <label for="disabledTextInput" class="form-label">Action Selected</label>
-                                        <input type="text" id="disabledTextInput" name="action"
-                                            value="{{ $entry->action }}" class="form-control" placeholder="Disabled input">
+                                        <label for="action" class="form-label">Action Selected</label>
+                                        <input type="text" id="action" name="action" value="{{ $entry->action }}"
+                                            class="form-control" placeholder="Disabled input">
                                     </div>
 
                                     <div class="wrap-input100 mb-3">
-                                        <label for="disabledTextInput" class="form-label">Other</label>
-                                        <input type="text" name="location" value="{{ $entry->other }}"
-                                            class="form-control" id="disabledTextInput" placeholder="Current Location">
+                                        <label for="other" class="form-label">Other</label>
+                                        <input type="text" name="other" value="{{ $entry->other }}"
+                                            class="form-control" id="other" placeholder="Current Location">
                                     </div>
 
                                     <div class="wrap-input100 mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Location</label>
+                                        <label for="location" class="form-label">Location</label>
                                         <input type="text" name="location" value="{{ $entry->location }}"
-                                            class="form-control" id="disabledTextInput" placeholder="Current Location">
+                                            class="form-control" id="location" placeholder="Current Location">
                                     </div>
                                     <div class="wrap-input100 mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Incoming cable</label>
+                                        <label for="incoming_cable" class="form-label">Incoming cable</label>
                                         <input type="text" name="incoming_cable" value="{{ $entry->incoming_cable }}"
-                                            class="form-control" id="disabledTextInput" placeholder="Cable location">
+                                            class="form-control" id="incoming_cable" placeholder="Cable location">
                                     </div>
 
                                     <div class="row g-3 align-items-center m-t-">
                                         <div class="col-auto">
-                                            <label for="inputPassword6" class="col-form-label">Buffer :</label>
+                                            <label for="incoming_buffer" class="col-form-label">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
                                             <input type="text" name="incoming_buffer"
                                                 value="{{ $entry->incoming_buffer }}" class="form-control"
-                                                id="bufferIncoming" placeholder='Red'>
+                                                id="incoming_buffer" placeholder='Red'>
                                         </div>
                                         <div class="col-auto">
                                             <span id="passwordHelpInline" class="form-text">
-                                                <canvas id="square" width="30px" height="30px"></canvas>
+                                                <canvas id="incoming_buffer" width="30px" height="30px"></canvas>
                                             </span>
                                         </div>
                                         <div class="col-auto col-auto-c m-l-200">
-                                            <label for="inputPassword6" class="col-form-label">Core :</label>
+                                            <label for="incoming_core" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="text" class="form-control" id="coreincoming"
+                                            <input type="text" class="form-control" id="incoming_core"
                                                 value="{{ $entry->incoming_core }}" name=incoming_core"
                                                 placeholder="Violet">
                                         </div>
                                         <div class="col-auto">
-                                            <span id="passwordHelpInline" class="form-text">
+                                            <span id="incoming_core" class="form-text">
                                                 <canvas id="square2" width="30px" height="30px"> </canvas>
                                             </span>
 
                                         </div>
                                     </div>
                                     <div class="wrap-input100 mb-3 m-t-40">
-                                        <label for="exampleFormControlInput1" class="form-label">Outgoing cable</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                            name=outgoing_cable" placeholder="Cable location"
-                                            value="{{ $entry->outgoing_cable }}">
+                                        <label for="outgoing_cable" class="form-label">Outgoing cable</label>
+                                        <input type="text" class="form-control" id="outgoing_cable" name=outgoing_cable"
+                                            placeholder="Cable location" value="{{ $entry->outgoing_cable }}">
                                     </div>
                                     <div class="row g-3 align-items-center m-t-2">
                                         <div class="col-auto">
-                                            <label for="inputPassword6" class="col-form-label ">Buffer :</label>
+                                            <label for="outgoing_buffer" class="col-form-label ">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="text" class="form-control" id="bufferoutgoing"
+                                            <input type="text" class="form-control" id="outgoing_buffer"
                                                 name=outgoing_buffer" placeholder="Brown"
                                                 value="{{ $entry->outgoing_buffer }}">
                                         </div>
                                         <div class="col-auto">
-                                            <span id="passwordHelpInline" class="form-text">
+                                            <span id="outgoing_buffer" class="form-text">
                                                 <canvas id="square3" width="30px" height="30px"> </canvas>
                                             </span>
                                         </div>
                                         <div class="col-auto col-auto-c m-l-200">
-                                            <label for="inputPassword6" class="col-form-label">Core :</label>
+                                            <label for="outgoing_core" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="text" class="form-control" id="coreoutgoing"
+                                            <input type="text" class="form-control" id="outgoing_core"
                                                 name="outgoing_core" placeholder="Aqua"
                                                 value="{{ $entry->outgoing_core }}">
                                         </div>
                                         <div class="col-auto">
-                                            <span id="passwordHelpInline" class="form-text">
+                                            <span id="outgoing_core" class="form-text">
                                                 <canvas id="square4" width="30px" height="30px"> </canvas>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="mb-3 m-t-20">
-                                        <label for="exampleInputEmail1" class="form-label">Engineer Email</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" value="{{ $entry->user_email }}">
+                                        <label for="user_email" class="form-label">Engineer Email</label>
+                                        <input type="text" class="form-control" id="user_email"
+                                            aria-describedby="emailHelp" name="user_email"
+                                            value="{{ $entry->user_email }}">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Time</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1"
+                                        <label for="time" class="form-label">Time</label>
+                                        <input type="text" class="form-control" id="time" name="time"
                                             value="{{ $entry->created_at }}">
                                     </div>
                                 </fieldset disabled>
                                 <div class="container-login100-form-btn flex-col-c">
-                                    <button type="submit" class="btn btn-secondary add-btn">Edit Entry</button>
+                                    <button type="submit" class="btn btn-secondary add-btn">Save Edited Entry</button>
                                 </div>
                             </form>
                         </div>

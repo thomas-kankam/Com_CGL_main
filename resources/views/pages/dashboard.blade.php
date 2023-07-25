@@ -155,9 +155,9 @@
                                             <td><span
                                                     class="text-success">{{ $entity->created_at->diffForHumans() }}</span>
                                             </td>
-                                            <td><a href="{{ route('view-entity', $entity->id) }}"><button
-                                                        class="btn-info">View</button></a>
-                                                <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
+                                            {{-- <td><a href="{{ route('view-entity', $entity->id) }}"><button
+                                                        class="btn-info">View</button></a> --}}
+                                            <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
                                             </td>
                                         </tr>
                                     @endforeach

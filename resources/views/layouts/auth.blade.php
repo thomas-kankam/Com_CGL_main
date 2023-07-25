@@ -19,15 +19,15 @@
                         @if (Auth::check())
                             @if (Auth::user()->role == 'Super Administrator')
                                 <li class="sidebar-item pt-2">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('home') }}" aria-expanded="false">
                                         <i class="far fa-clock" aria-hidden="true"></i>
                                         <span class="hide-menu">Dashboard</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/profile"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('profile') }}" aria-expanded="false">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <span class="hide-menu">Profile</span>
                                     </a>
@@ -41,79 +41,73 @@
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/entry"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('entry.index') }}" aria-expanded="false">
                                         <i class="fa fa-font" aria-hidden="true"></i>
                                         <span class="hide-menu">View Entries</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/users"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('users') }}" aria-expanded="false">
                                         <i class="fa fa-columns" aria-hidden="true"></i>
                                         <span class="hide-menu">Users List</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/logout"
-                                        aria-expanded="false" onclick="logout()"">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('logout') }}" aria-expanded="false" onclick="logout()"">
                                         <i class="fa fa-columns" aria-hidden="true"></i>
                                         <span class="hide-menu">Logout</span>
                                     </a>
                                 </li>
                             @else
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/crud"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('engineer.index') }}" aria-expanded="false">
                                         <i class="fa fa-table" aria-hidden="true"></i>
                                         <span class="hide-menu">Dashboard</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/create"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('engineer.create') }}" aria-expanded="false">
                                         <i class="fa fa-font" aria-hidden="true"></i>
                                         <span class="hide-menu">Create Entry</span>
                                     </a>
                                 </li>
+
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                        aria-expanded="false">
-                                        <i class="fa fa-globe" aria-hidden="true"></i>
-                                        <span class="hide-menu">Update</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('engineer.index') }}" aria-expanded="false">
                                         <i class="fa fa-columns" aria-hidden="true"></i>
-                                        <span class="hide-menu">View Entry</span>
+                                        <span class="hide-menu">View Entries</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/profile"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('profile') }}" aria-expanded="false">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <span class="hide-menu">Profile</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/users"
-                                        aria-expanded="false">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('users') }}" aria-expanded="false">
                                         <i class="fa fa-columns" aria-hidden="true"></i>
                                         <span class="hide-menu">Users List</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/logout"
-                                        aria-expanded="false" onclick="logout()">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('logout') }}" aria-expanded="false" onclick="logout()">
                                         <i class="fa fa-columns" aria-hidden="true"></i>
                                         <span class="hide-menu">Logout</span>
                                     </a>
                                 </li>
                             @endif
                         @endif
-                        <form id="logout-form" method="POST" action="/logout">
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
                             @csrf
                         </form>
                     </ul>

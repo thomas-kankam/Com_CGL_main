@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EngineerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::middleware("guest")->group(function () {
 
 Route::middleware(['web', 'auth'])->group(function () {
     // route to admin dashboard
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+    Route::get('dashboard', [HomeController::class, 'index'])->name('home');
 
     // View profile page and Edit profile
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
@@ -42,4 +43,8 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::get('users', [UserController::class, 'index'])->name('users');
     Route::get('show-user', [UserController::class, 'show'])->name('show-user');
     Route::post('create-user', [UserController::class, 'create'])->name('create-user');
+
+    // engineer dashboard and engineer profile
+    // Route::get('crud', [EngineerController::class, 'index'])->name('crud');
+    Route::resource('engineer', EngineerController::class);
 });

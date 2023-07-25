@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entry;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Requests\EntryRequest;
 use App\Http\Requests\EntryUpdate;
+use App\Http\Requests\EntryRequest;
 
-class EntryController extends Controller
+class EngineerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,7 @@ class EntryController extends Controller
     public function index()
     {
         $entries = Entry::all();
-        return view('pages.entry-index')->with('entries', $entries);
+        return view('pages.entry-index', compact('entries'));
     }
 
     /**
@@ -31,12 +30,6 @@ class EntryController extends Controller
         return view('pages.entry-create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(EntryRequest $request)
     {
         // Assuming you have the authenticated user
@@ -72,7 +65,7 @@ class EntryController extends Controller
      */
     public function show($id)
     {
-        // 
+        //
     }
 
     /**
