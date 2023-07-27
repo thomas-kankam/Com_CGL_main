@@ -95,25 +95,33 @@ class EntryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EntryUpdate $request, $id)
+    public function update(Request $request, $id)
     {
-        $entries = Entry::find($id);
+        $entry = Entry::find($id);
 
-        $entries->user_email = $request->input('user_email');
-        $entries->action = $request->input('action');
-        $entries->other = $request->input('other');
-        $entries->location = $request->input('location');
-        $entries->incoming_cable = $request->input('incoming_cable');
-        $entries->incoming_buffer = $request->input('incoming_buffer');
-        $entries->incoming_core = $request->input('incoming_core');
-        $entries->outgoing_cable = $request->input('outgoing_cable');
-        $entries->outgoing_buffer = $request->input('outgoing_buffer');
-        $entries->outgoing_core = $request->input('outgoing_core');
+        if (!$entry) {
+            return redirect()->route('entry.index')->with('error', 'Entry not found.');
+        }
 
-        $entries->update();
+        $validatedData = $request->validate([
+            'user_email' => 'required|email',
+            'action' => 'required|string',
+            'other' => 'required|string',
+            'location' => 'required|string',
+            'incoming_cable' => 'required|string',
+            'incoming_buffer' => 'required|string',
+            'incoming_core' => 'required|string',
+            'outgoing_cable' => 'required|string',
+            'outgoing_buffer' => 'required|string',
+            'outgoing_core' => 'required|string',
+        ]);
 
-        return redirect(route('entry.index'))->with('success', 'Record updated successfully.');
+        // Update the entry fields with the validated data
+        $entry->update($validatedData);
+
+        return redirect()->route('entry.index')->with('success', 'Record updated successfully.');
     }
+
 
     /**
      * Remove the specified resource from storage.

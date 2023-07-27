@@ -24,6 +24,12 @@
             <!-- ============================================================== -->
             <!-- Start Page Content -->
             <!-- ============================================================== -->
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <b>{{ session('success') }}</b>, a new Administrator created successfully
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -34,8 +40,17 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form class=" validate-form p-l-5 p-r-5 " autocomplete="on" method="POST"
-                                action="{{ route('entry.update', $entry->id) }}">
+                                action="{{ route('ing.update', $entry->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <span class="login100-form-title text-white p-b-9">
@@ -142,6 +157,7 @@
                                 <div class="container-login100-form-btn flex-col-c">
                                     <button type="submit" class="btn btn-secondary add-btn">Save Edited Entry</button>
                                 </div>
+                                {{-- {{ dd($request->all()) }} --}}
                             </form>
                         </div>
                     </div>

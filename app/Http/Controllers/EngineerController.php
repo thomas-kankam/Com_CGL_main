@@ -88,25 +88,57 @@ class EngineerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EntryUpdate $request, $id)
+    public function update(Request $request, Entry $entry)
     {
-        $entries = Entry::find($id);
+        dd($request->all());
+        $entry = Entry::find($entry);
 
-        $entries->user_email = $request->input('user_email');
-        $entries->action = $request->input('action');
-        $entries->other = $request->input('other');
-        $entries->location = $request->input('location');
-        $entries->incoming_cable = $request->input('incoming_cable');
-        $entries->incoming_buffer = $request->input('incoming_buffer');
-        $entries->incoming_core = $request->input('incoming_core');
-        $entries->outgoing_cable = $request->input('outgoing_cable');
-        $entries->outgoing_buffer = $request->input('outgoing_buffer');
-        $entries->outgoing_core = $request->input('outgoing_core');
+        $validatedData = $request->validate([
+            'user_email' => 'required|email',
+            'action' => 'required|string',
+            'other' => 'required|string',
+            'location' => 'required|string',
+            'incoming_cable' => 'required|string',
+            'incoming_buffer' => 'required|string',
+            'incoming_core' => 'required|string',
+            'outgoing_cable' => 'required|string',
+            'outgoing_buffer' => 'required|string',
+            'outgoing_core' => 'required|string',
+            'user_id' => 'nullable|integer',
+            'created_at' => 'nullable|date',
+            'updated_at' => 'nullable|date'
+        ]);
 
-        $entries->update();
+        // Update the entry fields with the validated data
+        $entry->update($validatedData);
 
-        return redirect(route('entry.index'))->with('success', 'Record updated successfully.');
+        return redirect()->route('engineer.index')->with('success', 'Record updated successfully.');
     }
+
+    public function ing(Request $request, $id)
+    {
+        // dd($request->all());
+
+        $validatedData = $request->validate([
+            'user_email' => 'nullable|email',
+            'action' => 'nullable|string',
+            'other' => 'nullable|string',
+            'location' => 'nullable|string',
+            'incoming_cable' => 'nullable|string',
+            'incoming_buffer' => 'nullable|string',
+            'incoming_core' => 'nullable|string',
+            'outgoing_cable' => 'nullable|string',
+            'outgoing_buffer' => 'nullable|string',
+            'outgoing_core' => 'nullable|string',
+            'time' => 'nullable|date',
+        ]);
+
+        $entries = Entry::findOrFail($id);
+        $entries->update($validatedData);
+
+        return redirect()->route('engineer.index')->with('success', 'Record updated successfully.');
+    }
+
 
     /**
      * Remove the specified resource from storage.

@@ -47,4 +47,5 @@ Route::middleware(['web', 'auth'])->group(function () {
     // engineer dashboard and engineer profile
     // Route::get('crud', [EngineerController::class, 'index'])->name('crud');
     Route::resource('engineer', EngineerController::class);
+    Route::put('/ing/{id}', [EngineerController::class, 'ing'])->name('ing.update');
 });
