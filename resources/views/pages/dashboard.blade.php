@@ -155,9 +155,10 @@
                                             <td><span
                                                     class="text-success">{{ $entity->created_at->diffForHumans() }}</span>
                                             </td>
-                                            {{-- <td><a href="{{ route('view-entity', $entity->id) }}"><button
-                                                        class="btn-info">View</button></a> --}}
-                                            <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
+                                            <td>
+                                                <a href="{{ route('entry.edit', $entity->id) }}"><button
+                                                        class="btn-info">View</button></a>
+                                                <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -177,23 +178,23 @@
                         <div class="card-body">
                             <h3 class="box-title mb-0">Recent Comments</h3>
                         </div>
-                        {{-- <div class="comment-widgets">
+                        <div class="comment-widgets">
                             <!-- Comment Row -->
-                            @foreach ($entries as $comment)
+                            @foreach ($entities as $comment)
                                 <div class="d-flex flex-row comment-row p-3">
-                                    <div class="p-2"><img src="../plugins/images/users/ritesh.jpg" alt="user"
-                                            width="50" class="rounded-circle"></div>
+                                    <div class="p-2"><img src="{{ asset('assets/plugins/images/users/ritesh.jpg') }}"
+                                            alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text ps-2 ps-md-3 w-100">
                                         <h5 class="font-medium">{{ $comment->user->email }}</h5>
                                         <span class="mb-3 d-block">{{ $comment->other }}</span>
                                         <div class="comment-footer d-md-flex align-items-center">
                                             <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">
-                                                {{ $entry->created_at->format('F d, Y') }}</div>
+                                                {{ $comment->created_at->format('F d, Y') }}</div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>

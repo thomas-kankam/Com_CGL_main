@@ -34,7 +34,7 @@ class LoginController extends Controller
     {
         // Check the user's role(s) and redirect accordingly
         if (Auth::user()->role == 'Super Administrator') {
-            return route('dashboard'); // Change this to the appropriate route for Super Admin
+            return route('home'); // Change this to the appropriate route for Super Admin
         }
         if (Auth::user()->role == 'Engineer') {
             return route('engineer.index'); // Change this to the appropriate route for Engineer

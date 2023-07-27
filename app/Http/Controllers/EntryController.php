@@ -97,27 +97,22 @@ class EntryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $entry = Entry::find($id);
-
-        if (!$entry) {
-            return redirect()->route('entry.index')->with('error', 'Entry not found.');
-        }
-
         $validatedData = $request->validate([
-            'user_email' => 'required|email',
-            'action' => 'required|string',
-            'other' => 'required|string',
-            'location' => 'required|string',
-            'incoming_cable' => 'required|string',
-            'incoming_buffer' => 'required|string',
-            'incoming_core' => 'required|string',
-            'outgoing_cable' => 'required|string',
-            'outgoing_buffer' => 'required|string',
-            'outgoing_core' => 'required|string',
+            'user_email' => 'nullable|email',
+            'action' => 'nullable|string',
+            'other' => 'nullable|string',
+            'location' => 'nullable|string',
+            'incoming_cable' => 'nullable|string',
+            'incoming_buffer' => 'nullable|string',
+            'incoming_core' => 'nullable|string',
+            'outgoing_cable' => 'nullable|string',
+            'outgoing_buffer' => 'nullable|string',
+            'outgoing_core' => 'nullable|string',
+            'time' => 'nullable|date',
         ]);
 
-        // Update the entry fields with the validated data
-        $entry->update($validatedData);
+        $entries = Entry::findOrFail($id);
+        $entries->update($validatedData);
 
         return redirect()->route('entry.index')->with('success', 'Record updated successfully.');
     }
