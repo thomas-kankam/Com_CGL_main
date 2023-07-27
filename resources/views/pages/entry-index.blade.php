@@ -68,7 +68,7 @@
                                             <td><span class="text-success">{{ $entry->created_at->diffForHumans() }}</span>
                                             </td>
                                             <td><a href="{{ route('entry.edit', $entry->id) }}"><button
-                                                        class="btn-info">View</button></a>
+                                                        class="btn-info">Edit</button></a>
                                                 <button class="btn btn-danger btn-sm" data-toggle="modal"
                                                     data-target="#deleteModal" onclick="handleDelete({{ $entry->id }})">
                                                     Delete

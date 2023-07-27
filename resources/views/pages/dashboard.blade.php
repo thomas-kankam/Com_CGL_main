@@ -157,7 +157,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('entry.edit', $entity->id) }}"><button
-                                                        class="btn-info">View</button></a>
+                                                        class="btn-info">Edit</button></a>
                                                 <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
                                             </td>
                                         </tr>
