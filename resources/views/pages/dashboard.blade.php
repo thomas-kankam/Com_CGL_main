@@ -151,7 +151,7 @@
                                                 <canvas id="square4" width="20px" height="20px">
                                                     {{ $entity->outgoing_core }}</canvas>
                                             </td>
-                                            <td><span class="text">{{ $entity->email }}</span></td>
+                                            <td><span class="text">{{ $entity->user_email }}</span></td>
                                             <td><span
                                                     class="text-success">{{ $entity->created_at->diffForHumans() }}</span>
                                             </td>

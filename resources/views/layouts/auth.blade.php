@@ -66,7 +66,7 @@
                                     <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                         href="{{ route('engineer.index') }}" aria-expanded="false">
                                         <i class="fa fa-table" aria-hidden="true"></i>
-                                        <span class="hide-menu">Dashboard</span>
+                                        <span class="hide-menu">Table</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
