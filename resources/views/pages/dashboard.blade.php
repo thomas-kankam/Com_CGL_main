@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table no-wrap">
+                            <table class="table no-wrap" id="example">
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">#</th>
@@ -180,7 +180,7 @@
                         </div>
                         <div class="comment-widgets">
                             <!-- Comment Row -->
-                            @foreach ($entities as $comment)
+                            @foreach ($comments as $comment)
                                 <div class="d-flex flex-row comment-row p-3">
                                     <div class="p-2"><img src="{{ asset('assets/plugins/images/users/ritesh.jpg') }}"
                                             alt="user" width="50" class="rounded-circle"></div>
@@ -194,22 +194,25 @@
                                     </div>
                                 </div>
                             @endforeach
+                            {{-- Pagination --}}
+                            <div class="d-flex justify-content-center">
+                                {{ $comments->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center"> 2023 © Made with <span>&#10084;</span>, Comsys Ghana Limited by <a
+                    href="#">KW</a>
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer text-center"> 2023 © Made with <span>&#10084;</span>, Comsys Ghana Limited by <a
-                href="#">KW</a>
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
-    </div>
-@endsection
+    @endsection

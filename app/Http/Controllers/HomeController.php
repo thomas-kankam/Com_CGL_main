@@ -23,6 +23,9 @@ class HomeController extends Controller
         $users = User::all()->count();
         $entities = Entry::all();
 
+        // Retrieve the data in Entry model to get all the other field data and store in comments variable with pagination
+        $comments = Entry::with('user')->latest()->paginate(2);
+
         // Retrieve the authenticated user's entry data
         $ingEntity = Entry::where('user_id', Auth::id())->get();
 
@@ -37,7 +40,8 @@ class HomeController extends Controller
             'dailyCount',
             'monthlyCount',
             'entries',
-            'ingEntity'
+            'ingEntity',
+            'comments'
         ));
     }
 
