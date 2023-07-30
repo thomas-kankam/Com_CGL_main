@@ -82,63 +82,200 @@
 
                                     <div class="row g-3 align-items-center m-t-">
                                         <div class="col-auto">
-                                            <label for="incoming_buffer" class="col-form-label">Buffer :</label>
+                                            <label for="inputPassword6" class="col-form-label">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="text" name="incoming_buffer"
-                                                value="{{ $entry->incoming_buffer }}" class="form-control"
-                                                id="incoming_buffer" placeholder='Red'>
+                                            <select class="form-select" id="inputPassword6" onchange="changeColor(this)"
+                                                name="incoming_buffer">
+                                                <option value="Blue" @if ($entry->incoming_buffer === 'Blue') selected @endif>
+                                                    Blue</option>
+                                                <option value="Orange" @if ($entry->incoming_buffer === 'Orange') selected @endif>
+                                                    Orange</option>
+                                                <!-- Add other options as required -->
+                                                <!-- Add other options as required Blue, Orange, Green, Brown, #0CC2C9, White, Red, Black, Yellow, Aqua, #FF007F, #8F00FF-->
+                                                <option value="Green" @if ($entry->incoming_buffer === 'Green') selected @endif>
+                                                    Green</option>
+                                                <option value="Brown" @if ($entry->incoming_buffer === 'Brown') selected @endif>
+                                                    Brown</option>
+                                                <option value="#0CC2C9" @if ($entry->incoming_buffer === '#0CC2C9') selected @endif>
+                                                    #0CC2C9</option>
+                                                <option value="White" @if ($entry->incoming_buffer === 'White') selected @endif>
+                                                    White</option>
+                                                <option value="Red" @if ($entry->incoming_buffer === 'Red') selected @endif>
+                                                    Red</option>
+                                                <option value="Black" @if ($entry->incoming_buffer === 'Black') selected @endif>
+                                                    Black</option>
+                                                <option value="Yellow" @if ($entry->incoming_buffer === 'Yellow') selected @endif>
+                                                    Yellow</option>
+                                                <option value="Aqua" @if ($entry->incoming_buffer === 'Aqua') selected @endif>
+                                                    Aqua</option>
+                                                <option value="#FF007F" @if ($entry->incoming_buffer === '#FF007F') selected @endif>
+                                                    #FF007F</option>
+                                                <option value="#8F00FF" @if ($entry->incoming_buffer === '#8F00FF') selected @endif>
+                                                    #8F00FF</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- For incoming_buffer -->
+                                        <div class="col-auto">
+                                            <span id="passwordHelpInline" class="form-text">
+                                                <canvas id="square" data-color="{{ $entry->incoming_buffer }}"
+                                                    width="30px" height="30px"></canvas>
+                                            </span>
+                                        </div>
+                                        <div class="col-auto col-auto-c m-l-200">
+                                            <label for="inputPassword6" class="col-form-label">Core :</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="col-auto">
+                                                <select class="form-select" id="inputPassword6"
+                                                    onchange="changeColor2(this)" name="incoming_core">
+                                                    <option value="Blue"
+                                                        @if ($entry->incoming_core === 'Blue') selected @endif>
+                                                        Blue</option>
+                                                    <option value="Orange"
+                                                        @if ($entry->incoming_core === 'Orange') selected @endif>
+                                                        Orange</option>
+                                                    <!-- Add other options as required -->
+                                                    <!-- Add other options as required Blue, Orange, Green, Brown, #0CC2C9, White, Red, Black, Yellow, Aqua, #FF007F, #8F00FF-->
+                                                    <option value="Green"
+                                                        @if ($entry->incoming_core === 'Green') selected @endif>
+                                                        Green</option>
+                                                    <option value="Brown"
+                                                        @if ($entry->incoming_core === 'Brown') selected @endif>
+                                                        Brown</option>
+                                                    <option value="#0CC2C9"
+                                                        @if ($entry->incoming_core === '#0CC2C9') selected @endif>
+                                                        #0CC2C9</option>
+                                                    <option value="White"
+                                                        @if ($entry->incoming_core === 'White') selected @endif>
+                                                        White</option>
+                                                    <option value="Red"
+                                                        @if ($entry->incoming_core === 'Red') selected @endif>
+                                                        Red</option>
+                                                    <option value="Black"
+                                                        @if ($entry->incoming_core === 'Black') selected @endif>
+                                                        Black</option>
+                                                    <option value="Yellow"
+                                                        @if ($entry->incoming_core === 'Yellow') selected @endif>
+                                                        Yellow</option>
+                                                    <option value="Aqua"
+                                                        @if ($entry->incoming_core === 'Aqua') selected @endif>
+                                                        Aqua</option>
+                                                    <option value="#FF007F"
+                                                        @if ($entry->incoming_core === '#FF007F') selected @endif>
+                                                        #FF007F</option>
+                                                    <option value="#8F00FF"
+                                                        @if ($entry->incoming_core === '#8F00FF') selected @endif>
+                                                        #8F00FF</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- For incoming_core -->
+                                        <div class="col-auto">
+                                            <span id="passwordHelpInline" class="form-text">
+                                                <canvas id="square2" data-color="{{ $entry->incoming_core }}"
+                                                    width="30px" height="30px"></canvas>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="wrap-input100 mb-3 m-t-40">
+                                        <label for="outgoing_cable" class="form-label">Outgoing cable</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            value="{{ $entry->outgoing_cable }}" name=outgoing_cable"
+                                            placeholder="Cable location">
+                                    </div>
+
+                                    <div class="row g-3 align-items-center m-t-2">
+                                        <div class="col-auto">
+                                            <label for="inputPassword6" class="col-form-label">Buffer :</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <select class="form-select" id="inputPassword6" onchange="changeColor3(this)"
+                                                name="outgoing_buffer">
+                                                <option value="Blue" @if ($entry->outgoing_buffer === 'Blue') selected @endif>
+                                                    Blue</option>
+                                                <option value="Orange" @if ($entry->outgoing_buffer === 'Orange') selected @endif>
+                                                    Orange</option>
+                                                <!-- Add other options as required -->
+                                                <!-- Add other options as required Blue, Orange, Green, Brown, #0CC2C9, White, Red, Black, Yellow, Aqua, #FF007F, #8F00FF-->
+                                                <option value="Green" @if ($entry->outgoing_buffer === 'Green') selected @endif>
+                                                    Green</option>
+                                                <option value="Brown" @if ($entry->outgoing_buffer === 'Brown') selected @endif>
+                                                    Brown</option>
+                                                <option value="#0CC2C9"
+                                                    @if ($entry->outgoing_buffer === '#0CC2C9') selected @endif>
+                                                    #0CC2C9</option>
+                                                <option value="White" @if ($entry->outgoing_buffer === 'White') selected @endif>
+                                                    White</option>
+                                                <option value="Red" @if ($entry->outgoing_buffer === 'Red') selected @endif>
+                                                    Red</option>
+                                                <option value="Black" @if ($entry->outgoing_buffer === 'Black') selected @endif>
+                                                    Black</option>
+                                                <option value="Yellow" @if ($entry->outgoing_buffer === 'Yellow') selected @endif>
+                                                    Yellow</option>
+                                                <option value="Aqua" @if ($entry->outgoing_buffer === 'Aqua') selected @endif>
+                                                    Aqua</option>
+                                                <option value="#FF007F"
+                                                    @if ($entry->outgoing_buffer === '#FF007F') selected @endif>
+                                                    #FF007F</option>
+                                                <option value="#8F00FF"
+                                                    @if ($entry->outgoing_buffer === '#8F00FF') selected @endif>
+                                                    #8F00FF</option>
+                                            </select>
                                         </div>
                                         <div class="col-auto">
                                             <span id="passwordHelpInline" class="form-text">
-                                                <canvas id="incoming_buffer" width="30px" height="30px"></canvas>
+                                                <canvas id="square3" data-color="{{ $entry->outgoing_buffer }}"
+                                                    width="30px" height="30px"> </canvas>
                                             </span>
                                         </div>
-                                        <div class="col-auto col-auto-c m-l-200">
-                                            <label for="incoming_core" class="col-form-label">Core :</label>
-                                        </div>
-                                        <div class="col-auto">
-                                            <input type="text" class="form-control" id="incoming_core"
-                                                value="{{ $entry->incoming_core }}" name=incoming_core"
-                                                placeholder="Violet">
-                                        </div>
-                                        <div class="col-auto">
-                                            <span id="incoming_core" class="form-text">
-                                                <canvas id="square2" width="30px" height="30px"> </canvas>
-                                            </span>
 
-                                        </div>
-                                    </div>
-                                    <div class="wrap-input100 mb-3 m-t-40">
-                                        <label for="outgoing_cable" class="form-label">Outgoing cable</label>
-                                        <input type="text" class="form-control" id="outgoing_cable" name=outgoing_cable"
-                                            placeholder="Cable location" value="{{ $entry->outgoing_cable }}">
-                                    </div>
-                                    <div class="row g-3 align-items-center m-t-2">
-                                        <div class="col-auto">
-                                            <label for="outgoing_buffer" class="col-form-label ">Buffer :</label>
-                                        </div>
-                                        <div class="col-auto">
-                                            <input type="text" class="form-control" id="outgoing_buffer"
-                                                name=outgoing_buffer" placeholder="Brown"
-                                                value="{{ $entry->outgoing_buffer }}">
-                                        </div>
-                                        <div class="col-auto">
-                                            <span id="outgoing_buffer" class="form-text">
-                                                <canvas id="square3" width="30px" height="30px"> </canvas>
-                                            </span>
-                                        </div>
                                         <div class="col-auto col-auto-c m-l-200">
-                                            <label for="outgoing_core" class="col-form-label">Core :</label>
+                                            <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
+
                                         <div class="col-auto">
-                                            <input type="text" class="form-control" id="outgoing_core"
-                                                name="outgoing_core" placeholder="Aqua"
-                                                value="{{ $entry->outgoing_core }}">
+                                            <select class="form-select" id="inputPassword6" onchange="changeColor4(this)"
+                                                name="outgoing_core">
+                                                <option value="Blue" @if ($entry->outgoing_core === 'Blue') selected @endif>
+                                                    Blue</option>
+                                                <option value="Orange" @if ($entry->outgoing_core === 'Orange') selected @endif>
+                                                    Orange</option>
+                                                <!-- Add other options as required -->
+                                                <!-- Add other options as required Blue, Orange, Green, Brown, #0CC2C9, White, Red, Black, Yellow, Aqua, #FF007F, #8F00FF-->
+                                                <option value="Green" @if ($entry->outgoing_core === 'Green') selected @endif>
+                                                    Green</option>
+                                                <option value="Brown" @if ($entry->outgoing_core === 'Brown') selected @endif>
+                                                    Brown</option>
+                                                <option value="#0CC2C9"
+                                                    @if ($entry->outgoing_core === '#0CC2C9') selected @endif>
+                                                    #0CC2C9</option>
+                                                <option value="White" @if ($entry->outgoing_core === 'White') selected @endif>
+                                                    White</option>
+                                                <option value="Red" @if ($entry->outgoing_core === 'Red') selected @endif>
+                                                    Red</option>
+                                                <option value="Black" @if ($entry->outgoing_core === 'Black') selected @endif>
+                                                    Black</option>
+                                                <option value="Yellow" @if ($entry->outgoing_core === 'Yellow') selected @endif>
+                                                    Yellow</option>
+                                                <option value="Aqua" @if ($entry->outgoing_core === 'Aqua') selected @endif>
+                                                    Aqua</option>
+                                                <option value="#FF007F"
+                                                    @if ($entry->outgoing_core === '#FF007F') selected @endif>
+                                                    #FF007F</option>
+                                                <option value="#8F00FF"
+                                                    @if ($entry->outgoing_core === '#8F00FF') selected @endif>
+                                                    #8F00FF</option>
+                                            </select>
                                         </div>
+
                                         <div class="col-auto">
-                                            <span id="outgoing_core" class="form-text">
-                                                <canvas id="square4" width="30px" height="30px"> </canvas>
+                                            <span id="passwordHelpInline" class="form-text">
+                                                <canvas id="square4" width="30px" height="30px"
+                                                    data-color="{{ $entry->outgoing_core }}"> </canvas>
                                             </span>
                                         </div>
                                     </div>

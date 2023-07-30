@@ -24,6 +24,12 @@
             <!-- Start Page Content -->
             <!-- ============================================================== -->
             <!-- Row -->
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <b>{{ session('success') }}</b>, a new Administrator created successfully
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="row">
                 <!-- Column -->
                 <div class="col-lg-4 col-xlg-3 col-md-12">

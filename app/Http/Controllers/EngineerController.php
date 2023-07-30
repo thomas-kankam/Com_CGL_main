@@ -6,6 +6,7 @@ use App\Models\Entry;
 use Illuminate\Http\Request;
 use App\Http\Requests\EntryUpdate;
 use App\Http\Requests\EntryRequest;
+use Illuminate\Support\Facades\Auth;
 
 class EngineerController extends Controller
 {
@@ -16,7 +17,15 @@ class EngineerController extends Controller
      */
     public function index()
     {
-        $entries = Entry::all();
+        // Check if the user is a Super Administrator
+        if (Auth::user()->role == 'Super Administrator') {
+            // Retrieve all entries for Super Administrator
+            $entries = Entry::all();
+        } else {
+            // Retrieve only the specific user's entries
+            $entries = Entry::where('user_id', auth()->id())->get();
+        }
+
         return view('pages.entry-index', compact('entries'));
     }
 

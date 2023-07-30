@@ -84,6 +84,7 @@
                                         <span class="hide-menu">View Entries</span>
                                     </a>
                                 </li>
+
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                         href="{{ route('profile') }}" aria-expanded="false">
@@ -121,6 +122,43 @@
         @yield('content')
     </div>
     @include('layouts.partials.auth-script')
+    {{-- <script>
+        function changeColor(selectElement) {
+            var color = selectElement.value;
+            var canvas = selectElement.nextElementSibling.querySelector('canvas');
+            canvas.style.backgroundColor = color;
+        }
+
+        function changeColor1(selectElement) {
+            var color = selectElement.value;
+            var canvas = selectElement.nextElementSibling.querySelector('canvas');
+            canvas.style.backgroundColor = color;
+        }
+
+        function changeColor2(selectElement) {
+            var color = selectElement.value;
+            var canvas = selectElement.nextElementSibling.querySelector('canvas');
+            canvas.style.backgroundColor = color;
+        }
+
+        function changeColor3(selectElement) {
+            var color = selectElement.value;
+            var canvas = selectElement.nextElementSibling.querySelector('canvas');
+            canvas.style.backgroundColor = color;
+        }
+
+        // Call the functions for each buffer and core drop-downs on page load
+        window.addEventListener('load', function() {
+            var bufferSelect = document.querySelector('select[name="outgoing_buffer"]');
+            var coreSelect = document.querySelector('select[name="outgoing_core"]');
+
+            changeColor(bufferSelect);
+            changeColor1(bufferSelect);
+            changeColor3(bufferSelect);
+            changeColor4(coreSelect);
+        });
+    </script> --}}
+
     <script>
         function changeColor(event) {
             var color = event.value;

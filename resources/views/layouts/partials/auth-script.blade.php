@@ -35,6 +35,17 @@
 </script>
 
 <script>
+    // Get all canvas elements with a specific data attribute
+    var canvases = document.querySelectorAll('canvas[data-color]');
+
+    // Loop through each canvas and set the background color
+    canvases.forEach(function(canvas) {
+        var color = canvas.getAttribute('data-color');
+        canvas.style.backgroundColor = color;
+    });
+</script>
+
+<script>
     function handleDelete(id) {
         var form = document.getElementById('deleteCategoryForm')
         form.action = '/entry/' + id

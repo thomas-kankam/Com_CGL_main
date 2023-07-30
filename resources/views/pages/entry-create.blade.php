@@ -106,6 +106,7 @@
                                                 <option value="Aqua">Aqua</option>
                                             </select>
                                         </div>
+
                                         <div class="col-auto">
                                             <span id="passwordHelpInline" class="form-text">
                                                 <canvas id="square" width="30px" height="30px"></canvas>

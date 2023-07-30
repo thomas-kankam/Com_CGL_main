@@ -141,15 +141,16 @@
                                             <td class="txt-oflo">{{ $entity->action }}</td>
                                             <td>{{ $entity->location }}</td>
                                             <td class="txt-oflo">
-                                                <canvas id="square" width="20px" height="20px">
-                                                    {{ $entity->incoming_buffer }}</canvas>
-                                                <canvas id="square2" width="20px"
-                                                    height="20px">{{ $entity->incoming_core }}
+                                                <canvas id="square" width="20px" height="20px"
+                                                    data-color="{{ $entity->incoming_buffer }}"></canvas>
+                                                <canvas id="square2" width="20px" height="20px"
+                                                    data-color="{{ $entity->incoming_core }}">
                                                 </canvas>
-                                                <canvas id="square3" width="20px"
-                                                    height="20px">{{ $entity->outgoing_buffer }} </canvas>
-                                                <canvas id="square4" width="20px" height="20px">
-                                                    {{ $entity->outgoing_core }}</canvas>
+                                                <canvas id="square3" width="20px" height="20px"
+                                                    data-color="{{ $entity->outgoing_buffer }}"></canvas>
+                                                <canvas id="square4" width="20px" height="20px"
+                                                    data-color="{{ $entity->outgoing_core }}">
+                                                </canvas>
                                             </td>
                                             <td><span class="text">{{ $entity->user_email }}</span></td>
                                             <td><span

@@ -18,7 +18,7 @@
                     <div class="white-box">
                         <div class="d-md-flex mb-3">
                             <h3 class="box-title mb-0">All Entries</h3>
-                            <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+                            {{-- <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
                                 <select class="form-select shadow-none row border-top">
                                     <option>
                                         <script>
@@ -32,7 +32,7 @@
                                         </script>
                                     </option>
                                 </select>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="table-responsive">
                             <table class="table no-wrap" id="example">
@@ -54,15 +54,16 @@
                                             <td class="txt-oflo">{{ $entry->action }}</td>
                                             <td>{{ $entry->location }}</td>
                                             <td class="txt-oflo">
-                                                <canvas id="square" width="20px" height="20px">
-                                                    {{ $entry->incoming_buffer }}</canvas>
-                                                <canvas id="square2" width="20px"
-                                                    height="20px">{{ $entry->incoming_core }}
+                                                <canvas id="square" width="20px" height="20px"
+                                                    data-color="{{ $entry->incoming_buffer }}"></canvas>
+                                                <canvas id="square2" width="20px" height="20px"
+                                                    data-color="{{ $entry->incoming_core }}">
                                                 </canvas>
-                                                <canvas id="square3" width="20px"
-                                                    height="20px">{{ $entry->outgoing_buffer }} </canvas>
-                                                <canvas id="square4" width="20px" height="20px">
-                                                    {{ $entry->outgoing_core }}</canvas>
+                                                <canvas id="square3" width="20px" height="20px"
+                                                    data-color="{{ $entry->outgoing_buffer }}"></canvas>
+                                                <canvas id="square4" width="20px" height="20px"
+                                                    data-color="{{ $entry->outgoing_core }}">
+                                                </canvas>
                                             </td>
                                             <td><span class="text">{{ $entry->user_email }}</span></td>
                                             <td><span class="text-success">{{ $entry->created_at->diffForHumans() }}</span>
