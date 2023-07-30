@@ -57,7 +57,7 @@
                                     <label class="col-sm-12">Select Role Type</label>
                                     <div class="col-sm-12 border-bottom">
                                         <select class="form-select shadow-none p-0 border-0" name="role" id="role"
-                                            aria-label="Role">
+                                            aria-label="Role" value="{{ old('role') }}">
                                             <option selected disabled>Select One</option>
                                             <option value="Super Administrator">Super Administrator</option>
                                             <option value="Engineer">Engineer</option>

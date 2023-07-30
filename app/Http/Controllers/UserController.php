@@ -26,10 +26,16 @@ class UserController extends Controller
     // Create New User
     public function create(UserRequest $req)
     {
+        $email = $req->input('email');
+
+        if (!str_ends_with($email, '@comsys.com')) {
+            return redirect()->back()->withErrors(['email' => 'Email must end with @comsys.com']);
+        }
+
         User::create([
             'name' => $req['name'],
             'role' => $req['role'],
-            'email' => $req['email'],
+            'email' => $email,
             'password' => Hash::make($req['password']),
             'contact' => $req['contact'],
             'description' => $req['description'],

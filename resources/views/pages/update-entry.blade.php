@@ -10,15 +10,15 @@
                     <h4 class="page-title">Create Entry</h4>
                 </div>
                 <!--  <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                            <div class="d-md-flex">
-                                <ol class="breadcrumb ms-auto">
-                                    <li><a href="#" class="fw-normal">Dashboard</a></li>
-                                </ol>
-                                <a href="" target="_blank"
-                                    class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
-                                    to Pro</a>
-                            </div>
-                        </div> -->
+                                <div class="d-md-flex">
+                                    <ol class="breadcrumb ms-auto">
+                                        <li><a href="#" class="fw-normal">Dashboard</a></li>
+                                    </ol>
+                                    <a href="" target="_blank"
+                                        class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
+                                        to Pro</a>
+                                </div>
+                            </div> -->
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -32,6 +32,12 @@
             <!-- ============================================================== -->
             <!-- Start Page Content -->
             <!-- ============================================================== -->
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <b>{{ session('success') }}</b>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12">
                     <div class="card">

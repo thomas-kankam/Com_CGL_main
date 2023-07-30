@@ -27,7 +27,7 @@
                     <div class="wrap-input100 validate-input m-b-26">
                         <span class="label-input100">Email</span>
                         <input type="email" class="input100" name="email" value="{{ old('email') }}" required
-                            autocomplete="email" placeholder="Enter email" autofocus>
+                            autocomplete="on" placeholder="Enter email" autofocus>
                         <span class="focus-input100"></span>
                     </div>
 
@@ -40,23 +40,17 @@
 
                     <div class="flex-sb-m w-full p-b-30">
                         <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" type="checkbox" name="remember" id="ckb1"
-                                value="{{ old('remember') ? 'checked' : '' }}" />
                             <label class="label-checkbox100" for="ckb1">
                                 Remember me
                             </label>
+                            <input class="input-checkbox100" type="checkbox" name="remember" id="ckb1"
+                                value="{{ old('remember') ? 'checked' : '' }}" />
                         </div>
 
-                        {{-- <div>
-                            <a href="#" class="txt1">
-                                Forgot Password?
-                            </a>
-                        </div> --}}
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" type="submit">{{ __('Log In') }}</button>
-                        <a class="login100-form-btn1" href="/register">{{ __('Sign Up') }}</a>
+                        <div class="container-login100-form-btn d-flex justify-content-end">
+                            <button class="login100-form-btn" type="submit">{{ __('Log In') }}</button>
+                            {{-- <a class="login100-form-btn1" href="/register">{{ __('Sign Up') }}</a> --}}
+                        </div>
                     </div>
                 </form>
             </div>
