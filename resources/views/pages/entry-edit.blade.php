@@ -97,8 +97,8 @@
                                                     Green</option>
                                                 <option value="Brown" @if ($entry->incoming_buffer === 'Brown') selected @endif>
                                                     Brown</option>
-                                                <option value="#0CC2C9" @if ($entry->incoming_buffer === '#0CC2C9') selected @endif>
-                                                    #0CC2C9</option>
+                                                <option value="#C0C2C9" @if ($entry->incoming_buffer === '#C0C2C9') selected @endif>
+                                                    Slate</option>
                                                 <option value="White" @if ($entry->incoming_buffer === 'White') selected @endif>
                                                     White</option>
                                                 <option value="Red" @if ($entry->incoming_buffer === 'Red') selected @endif>
@@ -107,12 +107,12 @@
                                                     Black</option>
                                                 <option value="Yellow" @if ($entry->incoming_buffer === 'Yellow') selected @endif>
                                                     Yellow</option>
+                                                <option value="Violet" @if ($entry->incoming_buffer === 'Violet') selected @endif>
+                                                    Violet</option>
+                                                <option value="#FF007F" @if ($entry->incoming_buffer === '#FF007F') selected @endif>
+                                                    Rose</option>
                                                 <option value="Aqua" @if ($entry->incoming_buffer === 'Aqua') selected @endif>
                                                     Aqua</option>
-                                                <option value="#FF007F" @if ($entry->incoming_buffer === '#FF007F') selected @endif>
-                                                    #FF007F</option>
-                                                <option value="#8F00FF" @if ($entry->incoming_buffer === '#8F00FF') selected @endif>
-                                                    #8F00FF</option>
                                             </select>
                                         </div>
 
@@ -144,9 +144,9 @@
                                                     <option value="Brown"
                                                         @if ($entry->incoming_core === 'Brown') selected @endif>
                                                         Brown</option>
-                                                    <option value="#0CC2C9"
-                                                        @if ($entry->incoming_core === '#0CC2C9') selected @endif>
-                                                        #0CC2C9</option>
+                                                    <option value="#C0C2C9"
+                                                        @if ($entry->incoming_core === '#C0C2C9') selected @endif>
+                                                        Slate</option>
                                                     <option value="White"
                                                         @if ($entry->incoming_core === 'White') selected @endif>
                                                         White</option>
@@ -159,15 +159,15 @@
                                                     <option value="Yellow"
                                                         @if ($entry->incoming_core === 'Yellow') selected @endif>
                                                         Yellow</option>
+                                                    <option value="Violet"
+                                                        @if ($entry->incoming_core === 'Violet') selected @endif>
+                                                        Violet</option>
+                                                    <option value="#FF007F"
+                                                        @if ($entry->incoming_core === '#FF007F') selected @endif>
+                                                        Rose</option>
                                                     <option value="Aqua"
                                                         @if ($entry->incoming_core === 'Aqua') selected @endif>
                                                         Aqua</option>
-                                                    <option value="#FF007F"
-                                                        @if ($entry->incoming_core === '#FF007F') selected @endif>
-                                                        #FF007F</option>
-                                                    <option value="#8F00FF"
-                                                        @if ($entry->incoming_core === '#8F00FF') selected @endif>
-                                                        #8F00FF</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -205,9 +205,9 @@
                                                     Green</option>
                                                 <option value="Brown" @if ($entry->outgoing_buffer === 'Brown') selected @endif>
                                                     Brown</option>
-                                                <option value="#0CC2C9"
-                                                    @if ($entry->outgoing_buffer === '#0CC2C9') selected @endif>
-                                                    #0CC2C9</option>
+                                                <option value="#C0C2C9"
+                                                    @if ($entry->outgoing_buffer === '#C0C2C9') selected @endif>
+                                                    Slate</option>
                                                 <option value="White" @if ($entry->outgoing_buffer === 'White') selected @endif>
                                                     White</option>
                                                 <option value="Red" @if ($entry->outgoing_buffer === 'Red') selected @endif>
@@ -216,14 +216,14 @@
                                                     Black</option>
                                                 <option value="Yellow" @if ($entry->outgoing_buffer === 'Yellow') selected @endif>
                                                     Yellow</option>
-                                                <option value="Aqua" @if ($entry->outgoing_buffer === 'Aqua') selected @endif>
-                                                    Aqua</option>
+                                                <option value="Violet"
+                                                    @if ($entry->outgoing_buffer === 'Violet') selected @endif>
+                                                    Violet</option>
                                                 <option value="#FF007F"
                                                     @if ($entry->outgoing_buffer === '#FF007F') selected @endif>
-                                                    #FF007F</option>
-                                                <option value="#8F00FF"
-                                                    @if ($entry->outgoing_buffer === '#8F00FF') selected @endif>
-                                                    #8F00FF</option>
+                                                    Rose</option>
+                                                <option value="Aqua" @if ($entry->outgoing_buffer === 'Aqua') selected @endif>
+                                                    Aqua</option>
                                             </select>
                                         </div>
                                         <div class="col-auto">
@@ -250,9 +250,9 @@
                                                     Green</option>
                                                 <option value="Brown" @if ($entry->outgoing_core === 'Brown') selected @endif>
                                                     Brown</option>
-                                                <option value="#0CC2C9"
-                                                    @if ($entry->outgoing_core === '#0CC2C9') selected @endif>
-                                                    #0CC2C9</option>
+                                                <option value="#C0C2C9"
+                                                    @if ($entry->outgoing_core === '#C0C2C9') selected @endif>
+                                                    Slate</option>
                                                 <option value="White" @if ($entry->outgoing_core === 'White') selected @endif>
                                                     White</option>
                                                 <option value="Red" @if ($entry->outgoing_core === 'Red') selected @endif>
@@ -261,14 +261,14 @@
                                                     Black</option>
                                                 <option value="Yellow" @if ($entry->outgoing_core === 'Yellow') selected @endif>
                                                     Yellow</option>
-                                                <option value="Aqua" @if ($entry->outgoing_core === 'Aqua') selected @endif>
-                                                    Aqua</option>
-                                                <option value="#FF007F"
-                                                    @if ($entry->outgoing_core === '#FF007F') selected @endif>
-                                                    #FF007F</option>
+                                                <option value="Violet"
+                                                    @if ($entry->outgoing_core === 'Violet') selected @endif>
+                                                    Violet</option>
                                                 <option value="#8F00FF"
                                                     @if ($entry->outgoing_core === '#8F00FF') selected @endif>
-                                                    #8F00FF</option>
+                                                    Rose</option>
+                                                <option value="Aqua" @if ($entry->outgoing_core === 'Aqua') selected @endif>
+                                                    Aqua</option>
                                             </select>
                                         </div>
 

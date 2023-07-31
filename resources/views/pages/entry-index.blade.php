@@ -60,7 +60,7 @@
                                                     data-color="{{ $entry->incoming_core }}">
                                                 </canvas>
                                                 <canvas id="square3" width="20px" height="20px"
-                                                    data-color="{{ $entry->outgoing_buffer }}"></canvas>
+                                                    data-color="{{ $entry->outgoing_buffer }}" class="m-l-40"></canvas>
                                                 <canvas id="square4" width="20px" height="20px"
                                                     data-color="{{ $entry->outgoing_core }}">
                                                 </canvas>

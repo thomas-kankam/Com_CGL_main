@@ -39,7 +39,7 @@
                             <div class="overlay-box">
                                 <div class="user-content">
                                     <a href="javascript:void(0)"><img
-                                            src="{{ asset('assets/plugins/images/users/genu.jpg') }}"
+                                            src="{{ asset('assets/plugins/images/users/user-i.png') }}"
                                             class="thumb-lg img-circle" alt="img"></a>
                                     <h4 class="text-white mt-2">{{ Auth::user()->name }}</h4>
                                     <h5 class="text-white mt-2">{{ Auth::user()->email }}</h5>

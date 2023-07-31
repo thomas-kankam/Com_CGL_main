@@ -107,7 +107,7 @@
                                                 <option value="Red">Red</option>
                                                 <option value="Black">Black</option>
                                                 <option value="Yellow">Yellow</option>
-                                                <option value="#8F00FF">Voilet</option>
+                                                <option value="Violet">Violet</option>
                                                 <option value="#FF007F">Rose</option>
                                                 <option value="Aqua">Aqua</option>
                                             </select>
@@ -133,7 +133,7 @@
                                                 <option value="Red">Red</option>
                                                 <option value="Black">Black</option>
                                                 <option value="Yellow">Yellow</option>
-                                                <option value="#8F00FF">Voilet</option>
+                                                <option value="Violet">Violet</option>
                                                 <option value="#FF007F">Rose</option>
                                                 <option value="Aqua">Aqua</option>
                                             </select>
@@ -166,7 +166,7 @@
                                                 <option value="Red">Red</option>
                                                 <option value="Black">Black</option>
                                                 <option value="Yellow">Yellow</option>
-                                                <option value="#8F00FF">Voilet</option>
+                                                <option value="Violet">Violet</option>
                                                 <option value="#FF007F">Rose</option>
                                                 <option value="Aqua">Aqua</option>
                                             </select>
@@ -191,7 +191,7 @@
                                                 <option value="Red">Red</option>
                                                 <option value="Black">Black</option>
                                                 <option value="Yellow">Yellow</option>
-                                                <option value="#8F00FF">Voilet</option>
+                                                <option value="Violet">Violet</option>
                                                 <option value="#FF007F">Rose</option>
                                                 <option value="Aqua">Aqua</option>
                                             </select>
