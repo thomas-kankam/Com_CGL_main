@@ -41,7 +41,7 @@
                                         <th class="border-top-0">#</th>
                                         <th class="border-top-0">Change Type</th>
                                         <th class="border-top-0">Location</th>
-                                        <th class="border-top-0">Incoming - Outgoing</th>
+                                        <th class="border-top-0">Incoming(B/C) - (C/B)Outgoing</th>
                                         <th class="border-top-0">Engineer Email</th>
                                         <th class="border-top-0">Time</th>
                                         <th class="border-top-0">Action</th>
@@ -55,7 +55,7 @@
                                             <td>{{ $entry->location }}</td>
                                             <td class="txt-oflo">
                                                 <canvas id="square" width="20px" height="20px"
-                                                    data-color="{{ $entry->incoming_buffer }}"></canvas>
+                                                    data-color="{{ $entry->incoming_buffer }}" class="m-l-40"></canvas>
                                                 <canvas id="square2" width="20px" height="20px"
                                                     data-color="{{ $entry->incoming_core }}">
                                                 </canvas>
