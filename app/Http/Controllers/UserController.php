@@ -29,7 +29,7 @@ class UserController extends Controller
         $email = $req->input('email');
 
         if (!str_ends_with($email, '@comsys.com')) {
-            return redirect()->back()->withErrors(['email' => 'Email must end with @comsys.com']);
+            return redirect()->back()->withErrors(['email' => 'Email must end with @comsysghana.com']);
         }
 
         User::create([
