@@ -53,7 +53,7 @@
                 <!-- ============================================================== -->
                 <li>
                     <a class="profile-pic" href="#">
-                        <img src="{{ asset('assets/plugins/images/users/varun.jpg') }}" width="36"
+                        <img src="{{ asset('assets/plugins/images/users/man-i.png') }}" width="36"
                             class="img-circle"><span class="text-white font-medium">{{ Auth::user()->name }}</span></a>
                 </li>
                 <!-- ============================================================== -->
