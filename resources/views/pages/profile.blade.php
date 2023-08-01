@@ -114,9 +114,19 @@
                                     </div>
                                 </div>
 
+                                {{-- <div class="form-group mb-4">
+                                    <label class="col-md-12 p-0">Profile Image:</label>
+                                    <div class="col-md-12 border-bottom p-0">
+                                        <input type="file" name="profile_image" class="border-0"
+                                            value="{{ auth()->user()->profile_image }}">
+                                    </div>
+                                </div> --}}
+
                                 <div class="form-group mb-4">
                                     <div class="col-sm-12">
                                         <button type="submit" class="btn btn-success">Update Profile</button>
+                                        <a type="submit" class="btn btn-secondary ms-5"
+                                            href="{{ route('changePassword') }}">Change Password</a>
                                     </div>
                                 </div>
                             </form>

@@ -68,12 +68,16 @@
                                             <td><span class="text">{{ $entry->user_email }}</span></td>
                                             <td><span class="text-success">{{ $entry->created_at->diffForHumans() }}</span>
                                             </td>
-                                            <td><a href="{{ route('entry.edit', $entry->id) }}"><button
-                                                        class="btn-info">Edit</button></a>
-                                                <button class="btn btn-danger btn-sm" data-toggle="modal"
-                                                    data-target="#deleteModal" onclick="handleDelete({{ $entry->id }})">
-                                                    Delete
-                                                </button>
+                                            <td>
+                                                @if (Auth::user()->role == 'Super Administrator')
+                                                    <a href="{{ route('entry.edit', $entry->id) }}"><button
+                                                            class="btn-info">Edit</button></a>
+                                                    <a href="{{ route('entry.delete', $entry->id) }}"><button
+                                                            class="btn-danger">Delete</button></a>
+                                                @elseif (Auth::user()->id == $entry->user_id)
+                                                    <a href="{{ route('entry.edit', $entry->id) }}"><button
+                                                            class="btn-info">Edit</button></a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

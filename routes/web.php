@@ -30,22 +30,30 @@ Route::middleware("guest")->group(function () {
 
 Route::middleware(['web', 'auth'])->group(function () {
     // route to admin dashboard
-    Route::get('dashboard', [HomeController::class, 'index'])->name('home');
+    Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
 
     // View profile page and Edit profile
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
+    // change password
+    Route::get('change-password', [ProfileController::class, 'showChangePassword'])->name('changePassword');
+    Route::post('change-password', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
+
     // Entry resource controller
     Route::resource('entry', EntryController::class);
+    // New route for entry deletion
+    Route::get('/entries/{entry}/delete', [EntryController::class, 'delete'])->name('entry.delete');
 
     // users list, Show create users, Add Users
     Route::get('users', [UserController::class, 'index'])->name('users');
     Route::get('show-user', [UserController::class, 'show'])->name('show-user');
     Route::post('create-user', [UserController::class, 'create'])->name('create-user');
+    Route::get('edit-user/{id}', [UserController::class, 'userEdit'])->name('user.edit');
+    Route::put('user/{user}', [UserController::class, 'userUpdate'])->name('user.update');
+    Route::delete('user/{id}', [UserController::class, 'userDelete'])->name('user.delete');
 
-    // engineer dashboard and engineer profile
-    // Route::get('crud', [EngineerController::class, 'index'])->name('crud');
+
     Route::resource('engineer', EngineerController::class);
     Route::put('/ing/{id}', [EngineerController::class, 'ing'])->name('ing.update');
 });

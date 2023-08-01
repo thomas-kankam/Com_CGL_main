@@ -32,14 +32,6 @@ class LoginController extends Controller
 
     protected function  redirectTo()
     {
-        // Check the user's role(s) and redirect accordingly
-        if (Auth::user()->role == 'Super Administrator') {
-            return route('home'); // Change this to the appropriate route for Super Admin
-        }
-        if (Auth::user()->role == 'Engineer') {
-            return route('engineer.index'); // Change this to the appropriate route for Engineer
-        }
-
         return $this->redirectTo; // Fallback to the default redirect path
     }
 }

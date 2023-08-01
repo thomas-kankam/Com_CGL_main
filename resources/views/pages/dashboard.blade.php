@@ -77,6 +77,8 @@
                     </div>
                 </div>
             </div>
+
+
             <!-- ============================================================== -->
             <!-- MAP STATS -->
             <!-- ============================================================== -->
@@ -231,11 +233,11 @@
                                                     draggable="false"
                                                     style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;">
                                             </div>
-                                        </a></div>
+                                        </a>
+                                    </div>
                                     <div
                                         style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 300px; height: 180px; position: absolute; left: 355px; top: 60px;">
-                                        <div
-                                            style="padding: 0px 0px 10px; font-size: 16px; box-sizing: border-box;">
+                                        <div style="padding: 0px 0px 10px; font-size: 16px; box-sizing: border-box;">
                                             Map Data</div>
                                         <div style="font-size: 13px;">Map data ©2021 Google, INEGI</div><button
                                             draggable="false" title="Close" aria-label="Close" type="button"
@@ -248,8 +250,7 @@
                                         style="z-index: 1000001; position: absolute; right: 169px; bottom: 0px; width: 150px;">
                                         <div draggable="false" class="gm-style-cc"
                                             style="user-select: none; height: 14px; line-height: 14px;">
-                                            <div
-                                                style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
+                                            <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
                                                 <div style="width: 1px;"></div>
                                                 <div
                                                     style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;">
@@ -258,7 +259,8 @@
                                             <div
                                                 style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;">
                                                 <a style="text-decoration: none; cursor: pointer; display: none;">Map
-                                                    Data</a><span>Map data ©2021 Google, INEGI</span></div>
+                                                    Data</a><span>Map data ©2021 Google, INEGI</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;">
@@ -280,7 +282,8 @@
                                                 target="_blank" rel="noopener"
                                                 style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms
                                                 of
-                                                Use</a></div>
+                                                Use</a>
+                                        </div>
                                     </div><button draggable="false" title="Toggle fullscreen view"
                                         aria-label="Toggle fullscreen view" type="button"
                                         class="gm-control-active gm-fullscreen-control"
@@ -305,7 +308,8 @@
                                                 title="Report errors in the road map or imagery to Google"
                                                 href="https://www.google.com/maps/@34.05,-78.72,5z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3"
                                                 style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Report
-                                                a map error</a></div>
+                                                a map error</a>
+                                        </div>
                                     </div>
                                     <div class="gmnoprint gm-bundled-control" draggable="false" controlwidth="40"
                                         controlheight="81"
@@ -325,8 +329,8 @@
                                                         style="height: 18px; width: 18px;"></button>
                                                 <div
                                                     style="position: relative; overflow: hidden; width: 30px; height: 1px; margin: 0px 5px; background-color: rgb(230, 230, 230); top: 0px;">
-                                                </div><button draggable="false" title="Zoom out"
-                                                    aria-label="Zoom out" type="button" class="gm-control-active"
+                                                </div><button draggable="false" title="Zoom out" aria-label="Zoom out"
+                                                    type="button" class="gm-control-active"
                                                     style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; overflow: hidden; width: 40px; height: 40px; top: 0px; left: 0px;"><img
                                                         src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A"
                                                         style="height: 18px; width: 18px;"><img
@@ -401,7 +405,8 @@
                             </div>
                             <div
                                 style="background-color: white; font-weight: 500; font-family: Roboto, sans-serif; padding: 15px 25px; box-sizing: border-box; top: 5px; border: 1px solid rgba(0, 0, 0, 0.12); border-radius: 5px; left: 50%; max-width: 375px; position: absolute; transform: translateX(-50%); width: calc(100% - 10px); z-index: 1;">
-                                <div><img alt="" src="http://maps.gstatic.com/mapfiles/api-3/images/google_gray.svg"
+                                <div><img alt=""
+                                        src="http://maps.gstatic.com/mapfiles/api-3/images/google_gray.svg"
                                         draggable="false"
                                         style="padding: 0px; margin: 0px; border: 0px; height: 17px; vertical-align: middle; width: 52px; user-select: none;">
                                 </div>
@@ -422,136 +427,111 @@
                                     </tr>
                                 </table>
                             </div>
-                        
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- RECENT CHANGES -->
-            <!-- ============================================================== -->
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12">
-                    <div class="white-box">
-                        <div class="d-md-flex mb-3">
-                            <h3 class="box-title mb-0">Recent Changes</h3>
-                            <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
-                                <select class="form-select shadow-none row border-top">
-                                    <option>
-                                        <script>
-                                            var d = new Date();
 
-                                            var date = d.getDate();
-                                            var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-                                            var year = d.getFullYear();
-                                            var dateStr = date + "/" + month + "/" + year;
-                                            document.write(dateStr);
-                                        </script>
-                                    </option>
-                                </select>
+                <!-- ============================================================== -->
+                <!-- RECENT CHANGES -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0">Recent Changes</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table no-wrap" id="example">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">#</th>
+                                            <th class="border-top-0">Change Type</th>
+                                            <th class="border-top-0">Location</th>
+                                            <th class="border-top-0">Incoming(B/C) - (C/B)Outgoing</th>
+                                            <th class="border-top-0">Engineer Email</th>
+                                            <th class="border-top-0">Time</th>
+                                            <th class="border-top-0">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($allEntries as $entries)
+                                            <tr>
+                                                <td class="id">{{ $entries->id }}</td>
+                                                <td class="txt-oflo">{{ $entries->action }}</td>
+                                                <td>{{ $entries->location }}</td>
+                                                <td class="txt-oflo">
+                                                    <canvas id="square" width="20px" height="20px"
+                                                        data-color="{{ $entries->incoming_buffer }}"
+                                                        class="m-l-40"></canvas>
+                                                    <canvas id="square2" width="20px" height="20px"
+                                                        data-color="{{ $entries->incoming_core }}">
+                                                    </canvas>
+                                                    <canvas id="square3" width="20px" height="20px"
+                                                        data-color="{{ $entries->outgoing_buffer }}"
+                                                        class="m-l-40"></canvas>
+                                                    <canvas id="square4" width="20px" height="20px"
+                                                        data-color="{{ $entries->outgoing_core }}">
+                                                    </canvas>
+                                                </td>
+                                                <td><span class="text">{{ $entries->user_email }}</span></td>
+                                                <td><span
+                                                        class="text-success">{{ $entries->created_at->diffForHumans() }}</span>
+                                                </td>
+                                                <td>
+                                                    @if (Auth::user()->role == 'Super Administrator')
+                                                        <a href="{{ route('entry.edit', $entries->id) }}"><button
+                                                                class="btn-info">Edit</button></a>
+                                                        <a href="{{ route('entry.delete', $entries->id) }}"><button
+                                                                class="btn-danger">Delete</button></a>
+                                                    @elseif (Auth::user()->id == $entries->user_id)
+                                                        <a href="{{ route('entry.edit', $entries->id) }}"><button
+                                                                class="btn-info">Edit</button></a>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table no-wrap" id="example">
-                                <thead>
-                                    <tr>
-                                        <th class="border-top-0">#</th>
-                                        <th class="border-top-0">Change Type</th>
-                                        <th class="border-top-0">Location</th>
-                                        <th class="border-top-0">Incoming(B/C) - (C/B)Outgoing</th>
-                                        <th class="border-top-0">Engineer Email</th>
-                                        <th class="border-top-0">Time</th>
-                                        <th class="border-top-0">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($entities as $entity)
-                                        {{-- <tr>
-                                            <td class="id">{{ $user->id }}</td>
-                                            <td class="name">{{ $user->name }}</td>
-                                            <td class="email">{{ $user->email }}</td>
-                                            <td class="role">{{ $user->role }}</td>
-                                            <td class="contact">{{ $user->contact }}</td>
-                                            <td class="job">{{ $user->job }}</td>
-                                        </tr> --}}
-
-                                        <tr>
-                                            <td class="id">{{ $entity->id }}</td>
-                                            <td class="txt-oflo">{{ $entity->action }}</td>
-                                            <td>{{ $entity->location }}</td>
-                                            <td class="txt-oflo">
-                                                <canvas id="square" width="20px" height="20px"
-                                                    data-color="{{ $entity->incoming_buffer }}" class="m-l-40"></canvas>
-                                                <canvas id="square2" width="20px" height="20px"
-                                                    data-color="{{ $entity->incoming_core }}">
-                                                </canvas>
-                                                <canvas id="square3" width="20px" height="20px"
-                                                    data-color="{{ $entity->outgoing_buffer }}" class="m-l-40"></canvas>
-                                                <canvas id="square4" width="20px" height="20px"
-                                                    data-color="{{ $entity->outgoing_core }}">
-                                                </canvas>
-                                            </td>
-                                            <td><span class="text">{{ $entity->user_email }}</span></td>
-                                            <td><span
-                                                    class="text-success">{{ $entity->created_at->diffForHumans() }}</span>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('entry.edit', $entity->id) }}"><button
-                                                        class="btn-info">Edit</button></a>
-                                                <a href="delete-entry"><button class="btn-danger">Delete</button> </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- Recent Comments -->
-            <!-- ============================================================== -->
-            <div class="row">
-                <!-- .col -->
-                <div class="col-md-12 col-lg-12 col-sm-12">
-                    <div class="card white-box p-0">
-                        <div class="card-body">
-                            <h3 class="box-title mb-0">Recent Comments</h3>
-                        </div>
-                        <div class="comment-widgets">
-                            <!-- Comment Row -->
-                            @foreach ($comments as $comment)
-                                <div class="d-flex flex-row comment-row p-3">
-                                    <div class="p-2"><img src="{{ asset('assets/plugins/images/users/man-i.png') }}"
-                                            alt="user" width="50" class="rounded-circle"></div>
-                                    <div class="comment-text ps-2 ps-md-3 w-100">
-                                        <h5 class="font-medium">{{ $comment->user->email }}</h5>
-                                        <span class="mb-3 d-block">{{ $comment->other }}</span>
-                                        <div class="comment-footer d-md-flex align-items-center">
-                                            <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">
-                                                {{ $comment->created_at->format('F d, Y') }}</div>
+                <!-- ============================================================== -->
+                <!-- Recent Comments -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- .col -->
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="card white-box p-0">
+                            <div class="card-body">
+                                <h3 class="box-title mb-0">Recent Comments</h3>
+                            </div>
+                            <div class="comment-widgets">
+                                <!-- Comment Row -->
+                                @foreach ($comments as $comment)
+                                    <div class="d-flex flex-row comment-row p-3">
+                                        <div class="p-2"><img
+                                                src="{{ asset('assets/plugins/images/users/man-i.png') }}" alt="user"
+                                                width="50" class="rounded-circle"></div>
+                                        <div class="comment-text ps-2 ps-md-3 w-100">
+                                            <h5 class="font-medium">{{ $comment->user->email }}</h5>
+                                            <span class="mb-3 d-block">{{ $comment->other }}</span>
+                                            <div class="comment-footer d-md-flex align-items-center">
+                                                <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">
+                                                    {{ $comment->created_at->format('F d, Y') }}</div>
+                                            </div>
                                         </div>
                                     </div>
+                                @endforeach
+                                {{-- Pagination --}}
+                                <div class="d-flex justify-content-center">
+                                    {{ $comments->links() }}
                                 </div>
-                            @endforeach
-                            {{-- Pagination --}}
-                            <div class="d-flex justify-content-center">
-                                {{ $comments->links() }}
                             </div>
                         </div>
+                        @include('layouts.partials.footer')
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center"> 2023 © Made with <span>&#10084;</span>, Comsys Ghana Limited by <a
-                    href="#">KW</a>
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-    @endsection
+        @endsection

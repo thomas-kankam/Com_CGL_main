@@ -4,53 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Entry;
-use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
-
 
 class HomeController extends Controller
 {
-
+    // Middleware to check if user is authenticated
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
+        // Retrieve the total number of users
         $users = User::all()->count();
-        $entities = Entry::all();
+
+        // Retrieve the total number of entries
+        $allEntries = Entry::all();
 
         // Retrieve the data in Entry model to get all the other field data and store in comments variable with pagination
         $comments = Entry::with('user')->latest()->paginate(2);
 
-        // Retrieve the authenticated user's entry data
-        $ingEntity = Entry::where('user_id', Auth::id())->get();
-
+        // Retrieve the total number of entries for the current day
         $dailyCount = Entry::whereDate('created_at', today())->count();
+
+        // Retrieve the total number of entries for the current month
         $monthlyCount = Entry::whereMonth('created_at', now()->month)->count();
 
+        // Retrieve the data in Entry model to get all the other field data and store in comments variable with pagination
         $entries = Entry::with('user')->latest()->get();
 
         return view('pages.dashboard', compact(
             'users',
-            'entities',
+            'allEntries',
             'dailyCount',
             'monthlyCount',
             'entries',
-            'ingEntity',
             'comments'
         ));
-    }
-
-    public function crud()
-    {
-        // Retrieve the authenticated user's entry data
-        $entities = Entry::where('user_id', Auth::id())->get();
-
-        return view('pages.crud', compact('entities'));
     }
 
     public function entryShow()

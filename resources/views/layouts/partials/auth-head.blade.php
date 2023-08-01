@@ -4,10 +4,8 @@
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="#">
-    <meta name="description"
-        content="#">
+    <meta name="keywords" content="#">
+    <meta name="description" content="#">
     <meta name="robots" content="noindex,nofollow">
     <title>Comsys Tracker | Dashboard Home</title>
     <link rel="canonical" href="" />
@@ -23,10 +21,6 @@
     <!-- Custom CSS -->
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.min.css') }}" rel="stylesheet">
-
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"> --}}
-
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet"> --}}
 
     <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 </head>

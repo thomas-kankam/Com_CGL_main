@@ -51,15 +51,12 @@
         form.action = '/entry/' + id
         $('#deleteModal').modal('show')
     }
-    // $(document).ready(function () {
-    //     $('#deleteModal').on('show.bs.modal', function (event) {
-    //         var button = $(event.relatedTarget);
-    //         var blacklist = button.data('blacklist');
-    //         var form = $('#deleteForm');
 
-    //         form.attr('action', form.attr('action').replace('blacklists/{id}', blacklist));
-    //     });
-    // });
+    function userDelete(id) {
+        var form = document.getElementById('deleteCategoryForm')
+        form.action = '/user/' + id
+        $('#deleteModal').modal('show')
+    }
 </script>
 
 {{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
@@ -67,3 +64,43 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    function changeColor(event) {
+        var color = event.value;
+        var canvas = document.getElementById('square'); // Change 'square' to the actual ID of the canvas element
+        canvas.style.backgroundColor = color;
+    }
+</script>
+<script>
+    function changeColor2(event) {
+        var color = event.value;
+        var canvas = document.getElementById('square2'); // Change 'square' to the actual ID of the canvas element
+        canvas.style.backgroundColor = color;
+    }
+</script>
+<script>
+    function changeColor3(event) {
+        var color = event.value;
+        var canvas = document.getElementById('square3'); // Change 'square' to the actual ID of the canvas element
+        canvas.style.backgroundColor = color;
+    }
+</script>
+<script>
+    function changeColor4(event) {
+        var color = event.value;
+        var canvas = document.getElementById('square4'); // Change 'square' to the actual ID of the canvas element
+        canvas.style.backgroundColor = color;
+    }
+</script>
+
+<script>
+    // Get all canvas elements
+    const canvasElements = document.querySelectorAll('canvas');
+
+    // Loop through each canvas element and set the background color
+    canvasElements.forEach(canvas => {
+        const colorCode = canvas.getAttribute('data-color');
+        canvas.style.backgroundColor = colorCode;
+    });
+</script>

@@ -18,15 +18,7 @@ class EntryController extends Controller
      */
     public function index()
     {
-        // Check if the user is a Super Administrator
-        if (Auth::user()->role == 'Super Administrator') {
-            // Retrieve all entries for Super Administrator
-            $entries = Entry::all();
-        } else {
-            // Retrieve only the specific user's entries
-            $entries = Entry::where('user_id', auth()->id())->get();
-        }
-
+        $entries = Entry::all();
         return view('pages.entry-index')->with('entries', $entries);
     }
 
@@ -140,7 +132,13 @@ class EntryController extends Controller
     {
         $entity = Entry::findOrFail($id);
 
-        $entity->delete();
+        // Check if the user is a Super Administrator or owns the entry
+        if (Auth::user()->role == 'Super Administrator' || Auth::user()->id == $entity->user_id) {
+            $entity->delete();
+            return redirect()->route('entries.index')->with('success', 'Entry deleted successfully.');
+        } else {
+            return redirect()->route('entries.index')->with('error', 'You are not authorized to delete this entry.');
+        }
 
         return redirect()->route('entry.index')->with('success', 'Record deleted successfully.');
     }
