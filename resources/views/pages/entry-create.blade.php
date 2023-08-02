@@ -220,30 +220,4 @@
             </div>
         </div>
 
-        <!-- Script for Color Update on different pages -->
-        <script>
-            function sendSelectedColors() {
-              const select1 = document.getElementById('select1');
-              const select2 = document.getElementById('select2');
-              const select3 = document.getElementById('select3');
-              const select4 = document.getElementById('select4');
-        
-              const selectedCol1 = select1.value;
-              const selectedCol2 = select2.value;
-              const selectedCol3 = select3.value;
-              const selectedCol4 = select4.value;
-        
-              const selectedColors = {
-                bufferin:   selectedCol1,
-                corein:     selectedCol2,
-                bufferout:  selectedCol3,
-                coreout:    selectedCol4,
-              };
-        
-              // Save the selectedColors in localStorage to pass them to the other page
-              localStorage.setItem('selectedColors', JSON.stringify(selectedColors));
-              window.open('/dashboard', '_blank');
-            }
-          </script>
-        <!-- End Script -->
     @endsection
