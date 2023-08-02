@@ -96,7 +96,7 @@
                                             <label for="inputPassword6" class="col-form-label">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01" onchange="changeColor(this)"
+                                            <select class="form-select" id="select1" onchange="changeColor(this)"
                                                 name="incoming_buffer">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -122,7 +122,7 @@
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
+                                            <select class="form-select" id="select2"
                                                 onchange="changeColor2(this)" name="incoming_core">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -155,7 +155,7 @@
                                             <label for="inputPassword6" class="col-form-label ">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
+                                            <select class="form-select" id="select3"
                                                 onchange="changeColor3(this)" name="outgoing_buffer">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -180,7 +180,7 @@
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
+                                            <select class="form-select" id="select4"
                                                 onchange="changeColor4(this)" name="outgoing_core">
                                                 <option value="Blue">Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -209,7 +209,7 @@
                                         </button>
                                     </div> --}}
                                     <div class="container-login100-form-btn flex-col-c pt-3">
-                                        <button type="submit" class="btn btn-secondary add-btn">Create Entry</button>
+                                        <button type="submit"  onclick="sendSelectedColors()" class="btn btn-secondary add-btn">Create Entry</button>
                                     </div>
                                 </form>
                             </div>
@@ -219,4 +219,31 @@
                 </div>
             </div>
         </div>
+
+        <!-- Script for Color Update on different pages -->
+        <script>
+            function sendSelectedColors() {
+              const select1 = document.getElementById('select1');
+              const select2 = document.getElementById('select2');
+              const select3 = document.getElementById('select3');
+              const select4 = document.getElementById('select4');
+        
+              const selectedCol1 = select1.value;
+              const selectedCol2 = select2.value;
+              const selectedCol3 = select3.value;
+              const selectedCol4 = select4.value;
+        
+              const selectedColors = {
+                bufferin:   selectedCol1,
+                corein:     selectedCol2,
+                bufferout:  selectedCol3,
+                coreout:    selectedCol4,
+              };
+        
+              // Save the selectedColors in localStorage to pass them to the other page
+              localStorage.setItem('selectedColors', JSON.stringify(selectedColors));
+              window.open('/dashboard', '_blank');
+            }
+          </script>
+        <!-- End Script -->
     @endsection
