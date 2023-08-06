@@ -57,10 +57,21 @@
                                     VIEW
                                 </span>
                                 <fieldset>
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="action" class="form-label">Action Selected</label>
                                         <input type="text" id="action" name="action" value="{{ $entry->action }}"
                                             class="form-control" placeholder="Disabled input">
+                                    </div> --}}
+
+                                    <div class="input-group mb-3 m-t-40">
+                                        <label class="input-group-text" for="inputGroupSelect01">Action Selected</label>
+                                        <select class="form-select" id="inputGroupSelect01" name="action">
+                                            {{-- <option selected disabled>Select Action</option> --}}
+                                            <option value="New Core" @if ($entry->action === 'New Core') selected @endif>New
+                                                Core</option>
+                                            <option value="Core Change" @if ($entry->action === 'Core Change') selected @endif>
+                                                Core Change</option>
+                                        </select>
                                     </div>
 
                                     <div class="wrap-input100 mb-3">

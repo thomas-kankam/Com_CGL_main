@@ -74,12 +74,28 @@
                                         <input type="text" name="location" class="form-control"
                                             id="exampleFormControlInput1" placeholder="Current Location">
                                     </div>
-                                    <div class="wrap-input100 mb-3">
-                                        {{-- <label for="exampleFormControlInput1" class="form-label">Engineer</label> --}}
+                                    {{-- <div class="wrap-input100 mb-3">
+                                        <label for="exampleFormControlInput1"
+                                            class="form-label">{{ $data->latitude }}</label>
+                                        <input type="text" name="latitude" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Current Latitude">
+                                    </div> --}}
+
+
+                                    {{-- <div class="wrap-input100 mb-3">
+                                        <label for="exampleFormControlInput1"
+                                            class="form-label">{{ $data->longtitude }}</label>
+                                        <input type="text" name="longitude" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Current Longitude">
+                                    </div> --}}
+
+                                    {{-- <div class="wrap-input100 mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Engineer</label>
                                         <input type="text" name="user_id" class="form-control"
                                             value="{{ Auth::user()->id }}" id="exampleFormControlInput1"
                                             placeholder="Current Location" hidden>
-                                    </div>
+                                    </div> --}}
+
                                     <div class="wrap-input100 mb-3">
                                         <input type="text" name="user_email" class="form-control"
                                             value="{{ Auth::user()->email }}" id="exampleFormControlInput1"
@@ -96,7 +112,7 @@
                                             <label for="inputPassword6" class="col-form-label">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01" onchange="changeColor(this)"
+                                            <select class="form-select" id="select1" onchange="changeColor(this)"
                                                 name="incoming_buffer">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -122,8 +138,8 @@
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
-                                                onchange="changeColor2(this)" name="incoming_core">
+                                            <select class="form-select" id="select2" onchange="changeColor2(this)"
+                                                name="incoming_core">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
                                                 <option value="Green">Green</option>
@@ -155,8 +171,8 @@
                                             <label for="inputPassword6" class="col-form-label ">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
-                                                onchange="changeColor3(this)" name="outgoing_buffer">
+                                            <select class="form-select" id="select3" onchange="changeColor3(this)"
+                                                name="outgoing_buffer">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
                                                 <option value="Green">Green</option>
@@ -180,8 +196,8 @@
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
-                                                onchange="changeColor4(this)" name="outgoing_core">
+                                            <select class="form-select" id="select4" onchange="changeColor4(this)"
+                                                name="outgoing_core">
                                                 <option value="Blue">Blue</option>
                                                 <option value="Orange">Orange </option>
                                                 <option value="Green">Green</option>
@@ -205,7 +221,8 @@
                                     </div>
 
                                     <div class="container-login100-form-btn flex-col-c pt-3">
-                                        <button type="submit" class="btn btn-secondary add-btn">Create Entry</button>
+                                        <button type="submit" onclick="sendSelectedColors()"
+                                            class="btn btn-secondary add-btn">Create Entry</button>
                                     </div>
                                 </form>
                             </div>

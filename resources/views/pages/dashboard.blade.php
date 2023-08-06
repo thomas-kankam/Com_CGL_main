@@ -9,7 +9,7 @@
         <div class="page-breadcrumb bg-white">
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Welcome {{ Auth::user()->name }}
+                    <h4 class="page-title">Welcome {{ Auth::user()->job }}
                     </h4>
                 </div>
             </div>
@@ -483,8 +483,8 @@
                                                 <td><span
                                                         class="text-success">{{ $entries->created_at->diffForHumans() }}</span>
                                                 </td>
-                                                @if (Auth::user()->role == 'Super Administrator')
-                                                    <td>
+                                                <td>
+                                                    @if (Auth::user()->role == 'Super Administrator')
                                                         <a href="{{ route('entry.edit', $entries->id) }}"><button
                                                                 class="btn-info">Edit</button></a>
                                                         <a href="{{ route('entry.destroy', $entries->id) }}"><button
@@ -494,8 +494,8 @@
                                                     @elseif (Auth::user()->id == $entries->user_id)
                                                         <a href="{{ route('entry.edit', $entries->id) }}"><button
                                                                 class="btn-info">Edit</button></a>
-                                                    </td>
-                                                @endif
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -509,31 +509,33 @@
                 <div id="danger-header-modal" class="modal fade" tabindex="-1" role="dialog"
                     aria-labelledby="danger-header-modalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <form action="{{ route('entry.destroy', $entries->id) }}" method="POST" {{-- @foreach ($entries as $entry) --}}
-                            id="deleteCategoryForm">
-                            @csrf
-                            @method('DELETE')
+                        @foreach ($entries as $entry)
+                            <form action="{{ route('entry.destroy', $entries->id) }}" method="POST"
+                                id="deleteCategoryForm">
+                                @csrf
+                                @method('DELETE')
 
-                            <div class="modal-content">
-                                <div class="modal-header bg-danger">
-                                    <h4 class="modal-title" id="danger-header-modalLabel">Confirm Delete</h4>
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                        aria-hidden="true"></button>
-                                </div>
+                                <div class="modal-content">
+                                    <div class="modal-header bg-danger">
+                                        <h4 class="modal-title" id="danger-header-modalLabel">Confirm Delete</h4>
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                            aria-hidden="true"></button>
+                                    </div>
 
-                                <div class="modal-body">
-                                    <p class="text-bold">
-                                        Are you sure you want to delete this record ?
-                                    </p>
-                                </div>
+                                    <div class="modal-body">
+                                        <p class="text-bold">
+                                            Are you sure you want to delete this record ?
+                                        </p>
+                                    </div>
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                            {{-- @endforeach --}}
-                        </form>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </form>
+                        @endforeach
                     </div><!-- /.modal-dialog -->
                 </div>
                 <!-- ============================================================== -->
@@ -575,4 +577,6 @@
                     </div>
                 @endif
             </div>
-        @endsection
+        </div>
+    </div>
+@endsection

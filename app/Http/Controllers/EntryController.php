@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Location;
+use App\Models\Log;
 use App\Models\Entry;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -29,6 +31,11 @@ class EntryController extends Controller
      */
     public function create()
     {
+        // $ip = '49.35.41.195'; //For static IP address get
+        // $ip = request()->ip(); //Dynamic IP address get
+
+        // $data = \Location::get($ip);
+
         return view('pages.entry-create');
     }
 
@@ -102,6 +109,14 @@ class EntryController extends Controller
         ]);
 
         $entries = Entry::findOrFail($id);
+
+        // Create a log entry
+        $log = new Log();
+        $log->email = Auth::user()->email;
+        $log->message = 'Edited entry with ID ' . $entries->id . ' by ' . Auth::user()->name;
+        $log->location =  $entries->location;
+        $log->save();
+
         $entries->update($validatedData);
 
         return redirect()->route('entry.index')->with('success', 'Record updated successfully.');

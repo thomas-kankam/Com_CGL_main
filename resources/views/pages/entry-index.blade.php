@@ -23,10 +23,12 @@
                             <table class="table no-wrap" id="example">
                                 <thead>
                                     <tr>
-                                        <th class="border-top-0">#</th>
+                                        {{-- <th class="border-top-0">#</th> --}}
                                         <th class="border-top-0">Change Type</th>
                                         <th class="border-top-0">Location</th>
+                                        <th class="border-top-0">Incoming-Location</th>
                                         <th class="border-top-0">Incoming(B/C) - (C/B)Outgoing</th>
+                                        <th class="border-top-0">Outgoing-Location</th>
                                         <th class="border-top-0">Engineer Email</th>
                                         <th class="border-top-0">Time</th>
                                         <th class="border-top-0">Action</th>
@@ -35,9 +37,10 @@
                                 <tbody>
                                     @foreach ($entries as $entry)
                                         <tr>
-                                            <td class="id">{{ $entry->id }}</td>
+                                            {{-- <td class="id">{{ $entry->id }}</td> --}}
                                             <td class="txt-oflo">{{ $entry->action }}</td>
                                             <td>{{ $entry->location }}</td>
+                                            <td>{{ $entry->incoming_cable }}</td>
                                             <td class="txt-oflo">
                                                 <canvas id="square" width="20px" height="20px"
                                                     data-color="{{ $entry->incoming_buffer }}" class="m-l-40"></canvas>
@@ -50,6 +53,7 @@
                                                     data-color="{{ $entry->outgoing_core }}">
                                                 </canvas>
                                             </td>
+                                            <td>{{ $entry->outgoing_cable }}</td>
                                             <td><span class="text">{{ $entry->user_email }}</span></td>
                                             <td><span class="text-success">{{ $entry->created_at->diffForHumans() }}</span>
                                             </td>

@@ -21,7 +21,8 @@
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard') }}"
                                 aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">Dashboard</span>
+                                <span
+                                    class="hide-menu">{{ Auth::user()->role == 'Super Administrator' ? 'Dashboard' : 'Table' }}</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -53,6 +54,15 @@
                                 <span class="hide-menu">Users List</span>
                             </a>
                         </li>
+                        @if (Auth::user()->role == 'Super Administrator')
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('logs') }}"
+                                    aria-expanded="false">
+                                    <i class="fa fa-columns" aria-hidden="true"></i>
+                                    <span class="hide-menu">Logs</span>
+                                </a>
+                            </li>
+                        @endif
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('logout') }}"
                                 aria-expanded="false" onclick="logout()"">

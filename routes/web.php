@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Logs;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LogsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EntryController;
@@ -42,6 +44,9 @@ Route::middleware(['web', 'auth'])->group(function () {
 
     // Entry resource controller
     Route::resource('entry', EntryController::class);
+
+    // Logs
+    Route::get('logs', [LogsController::class, 'index'])->name('logs');
 
     // users list, Show create users, Add Users
     Route::get('users', [UserController::class, 'index'])->name('users');
