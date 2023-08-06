@@ -37,23 +37,15 @@ class HomeController extends Controller
         // Retrieve the total number of entries for the current month
         $monthlyCount = Entry::whereMonth('created_at', now()->month)->count();
 
-        // Retrieve the data in Entry model to get all the other field data and store in comments variable with pagination
-        $entries = Entry::with('user')->latest()->get();
+        $entries = Entry::all();
 
         return view('pages.dashboard', compact(
             'users',
             'allEntries',
             'dailyCount',
             'monthlyCount',
-            'entries',
-            'comments'
+            'comments',
+            'entries'
         ));
-    }
-
-    public function entryShow()
-    { // Retrieve the authenticated user's entry data
-        $entities = Entry::where('user_id', Auth::id())->get();
-
-        return view('pages.view-entry', compact('entities'));
     }
 }

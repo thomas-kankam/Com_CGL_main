@@ -18,21 +18,6 @@
                     <div class="white-box">
                         <div class="d-md-flex mb-3">
                             <h3 class="box-title mb-0">All Entries</h3>
-                            {{-- <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
-                                <select class="form-select shadow-none row border-top">
-                                    <option>
-                                        <script>
-                                            var d = new Date();
-
-                                            var date = d.getDate();
-                                            var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-                                            var year = d.getFullYear();
-                                            var dateStr = date + "/" + month + "/" + year;
-                                            document.write(dateStr);
-                                        </script>
-                                    </option>
-                                </select>
-                            </div> --}}
                         </div>
                         <div class="table-responsive">
                             <table class="table no-wrap" id="example">
@@ -72,8 +57,10 @@
                                                 @if (Auth::user()->role == 'Super Administrator')
                                                     <a href="{{ route('entry.edit', $entry->id) }}"><button
                                                             class="btn-info">Edit</button></a>
-                                                    <a href="{{ route('entry.delete', $entry->id) }}"><button
-                                                            class="btn-danger">Delete</button></a>
+                                                    <a href="{{ route('entry.destroy', $entry->id) }}"><button
+                                                            class="btn-danger" data-bs-toggle="modal"
+                                                            data-bs-target="#danger-header-modal"
+                                                            onclick="event.preventDefault();">Delete</button></a>
                                                 @elseif (Auth::user()->id == $entry->user_id)
                                                     <a href="{{ route('entry.edit', $entry->id) }}"><button
                                                             class="btn-info">Edit</button></a>
@@ -88,39 +75,37 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <form action="" method="POST" id="deleteCategoryForm">
-                        @csrf
-                        @method('DELETE')
+            <!-- Danger Header Modal -->
+            <div id="danger-header-modal" class="modal fade" tabindex="-1" role="dialog"
+                aria-labelledby="danger-header-modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    @foreach ($entries as $entry)
+                        <form action="{{ route('entry.destroy', $entry->id) }}" method="POST" id="deleteCategoryForm">
+                            @csrf
+                            @method('DELETE')
 
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
+                            <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                    <h4 class="modal-title" id="danger-header-modalLabel">Confirm Delete</h4>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                        aria-hidden="true"></button>
+                                </div>
 
-                            <div class="modal-body">
-                                <p class="text-bold">
-                                    Are you sure you want to delete this record ?
-                                </p>
-                            </div>
+                                <div class="modal-body">
+                                    <p class="text-bold">
+                                        Are you sure you want to delete this record ?
+                                    </p>
+                                </div>
 
-                            <div class="modal-footer">
-                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Go back</button> --}}
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                            </div>
-                        </div>
-
-                    </form>
-
-                </div>
-
-            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </form>
+                    @endforeach
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
         </div>
     </div>
 @endsection

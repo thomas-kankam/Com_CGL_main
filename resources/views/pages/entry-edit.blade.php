@@ -50,7 +50,7 @@
                                 </div>
                             @endif
                             <form class=" validate-form p-l-5 p-r-5 " autocomplete="on" method="POST"
-                                action="{{ route('ing.update', $entry->id) }}">
+                                action="{{ route('entry.update', $entry->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <span class="login100-form-title text-white p-b-9">
@@ -216,8 +216,7 @@
                                                     Black</option>
                                                 <option value="Yellow" @if ($entry->outgoing_buffer === 'Yellow') selected @endif>
                                                     Yellow</option>
-                                                <option value="Violet"
-                                                    @if ($entry->outgoing_buffer === 'Violet') selected @endif>
+                                                <option value="Violet" @if ($entry->outgoing_buffer === 'Violet') selected @endif>
                                                     Violet</option>
                                                 <option value="#FF007F"
                                                     @if ($entry->outgoing_buffer === '#FF007F') selected @endif>
@@ -261,8 +260,7 @@
                                                     Black</option>
                                                 <option value="Yellow" @if ($entry->outgoing_core === 'Yellow') selected @endif>
                                                     Yellow</option>
-                                                <option value="Violet"
-                                                    @if ($entry->outgoing_core === 'Violet') selected @endif>
+                                                <option value="Violet" @if ($entry->outgoing_core === 'Violet') selected @endif>
                                                     Violet</option>
                                                 <option value="#8F00FF"
                                                     @if ($entry->outgoing_core === '#8F00FF') selected @endif>
@@ -283,12 +281,12 @@
                                         <label for="user_email" class="form-label">Engineer Email</label>
                                         <input type="text" class="form-control" id="user_email"
                                             aria-describedby="emailHelp" name="user_email"
-                                            value="{{ $entry->user_email }}">
+                                            value="{{ $entry->user_email }}" disabled>
                                     </div>
                                     <div class="mb-3">
                                         <label for="time" class="form-label">Time</label>
                                         <input type="text" class="form-control" id="time" name="time"
-                                            value="{{ $entry->created_at }}">
+                                            value="{{ $entry->created_at }}" disabled>
                                     </div>
                                 </fieldset disabled>
                                 <div class="container-login100-form-btn flex-col-c">

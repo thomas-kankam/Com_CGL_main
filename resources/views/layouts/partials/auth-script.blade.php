@@ -51,12 +51,6 @@
         form.action = '/entry/' + id
         $('#deleteModal').modal('show')
     }
-
-    function userDelete(id) {
-        var form = document.getElementById('deleteCategoryForm')
-        form.action = '/user/' + id
-        $('#deleteModal').modal('show')
-    }
 </script>
 
 {{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}

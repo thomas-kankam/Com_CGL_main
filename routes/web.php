@@ -42,18 +42,9 @@ Route::middleware(['web', 'auth'])->group(function () {
 
     // Entry resource controller
     Route::resource('entry', EntryController::class);
-    // New route for entry deletion
-    Route::get('/entries/{entry}/delete', [EntryController::class, 'delete'])->name('entry.delete');
 
     // users list, Show create users, Add Users
     Route::get('users', [UserController::class, 'index'])->name('users');
     Route::get('show-user', [UserController::class, 'show'])->name('show-user');
     Route::post('create-user', [UserController::class, 'create'])->name('create-user');
-    Route::get('edit-user/{id}', [UserController::class, 'userEdit'])->name('user.edit');
-    Route::put('user/{user}', [UserController::class, 'userUpdate'])->name('user.update');
-    Route::delete('user/{id}', [UserController::class, 'userDelete'])->name('user.delete');
-
-
-    Route::resource('engineer', EngineerController::class);
-    Route::put('/ing/{id}', [EngineerController::class, 'ing'])->name('ing.update');
 });

@@ -66,17 +66,6 @@ class EntryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        // 
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -98,9 +87,6 @@ class EntryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // die and dump the entry updated data
-        dd($request->all());
-
         $validatedData = $request->validate([
             'user_email' => 'nullable|email',
             'action' => 'nullable|string',
@@ -135,9 +121,7 @@ class EntryController extends Controller
         // Check if the user is a Super Administrator or owns the entry
         if (Auth::user()->role == 'Super Administrator' || Auth::user()->id == $entity->user_id) {
             $entity->delete();
-            return redirect()->route('entries.index')->with('success', 'Entry deleted successfully.');
-        } else {
-            return redirect()->route('entries.index')->with('error', 'You are not authorized to delete this entry.');
+            return redirect()->route('entry.index')->with('success', 'Entry deleted successfully.');
         }
 
         return redirect()->route('entry.index')->with('success', 'Record deleted successfully.');

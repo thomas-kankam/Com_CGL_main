@@ -43,7 +43,7 @@ class ProfileController extends Controller
         $user = User::findOrFail($user->id);
         $user->update($validatedData);
 
-        return redirect()->back()->with("success", "Profile updated successfully!");
+        return redirect(route('users'))->with("success", "Profile updated successfully!");
     }
 
     /**

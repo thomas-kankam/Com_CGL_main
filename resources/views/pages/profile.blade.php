@@ -109,8 +109,8 @@
                                             <option value="Chief Technical Officer">Chief Technical Officer</option>
                                             <option value="Network Engineer">Network Engineer</option>
                                         </select>
-                                        <input type="text" class="form-control p-0 border-0"
-                                            value="{{ auth()->user()->job }}">
+                                        {{-- <input type="text" class="form-control p-0 border-0"
+                                            value="{{ auth()->user()->job }}"> --}}
                                     </div>
                                 </div>
 

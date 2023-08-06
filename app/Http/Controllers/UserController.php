@@ -44,48 +44,6 @@ class UserController extends Controller
             'remember_token' => Str::random(10),
         ]);
 
-        return redirect(route('users'))->with("success", "Congratulations! Engineer Created Successfully");
-    }
-
-    // Edit User
-    public function userEdit($id)
-    {
-        $user = User::find($id);
-
-        return view('pages.edit-users', compact('user'));
-    }
-
-    // Update User
-    public function userUpdate(Request $req, $id)
-    {
-        $req->validate([
-            'profile_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        $user = User::find($id);
-
-        if ($req->hasFile('profile_image')) {
-            $imagePath = $req->file('profile_image')->store('profile_images', 'public');
-            $user->profile_image = $imagePath;
-        }
-
-        $user->update([
-            'name' => $req['name'],
-            'role' => $req['role'],
-            'email' => $req['email'],
-            'profile_image' => $user->profile_image,
-        ]);
-
-        return redirect(route('users'))->with("success", "User Details Updated Successfully");
-    }
-
-    // Delete User
-    public function userDelete($id)
-    {
-        $user = User::find($id);
-
-        $user->delete();
-
-        return redirect(route('users'))->with("success", "User Deleted Successfully");
+        return redirect(route('users'))->with("success", "Congratulations " . $req['role'] . " Created Successfully");
     }
 }

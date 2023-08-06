@@ -203,11 +203,7 @@
 
                                         </div>
                                     </div>
-                                    {{-- <div class="container-login100-form-btn flex-col-c">
-                                        <button class="login100-form-btn">
-                                            CREATE
-                                        </button>
-                                    </div> --}}
+
                                     <div class="container-login100-form-btn flex-col-c pt-3">
                                         <button type="submit" class="btn btn-secondary add-btn">Create Entry</button>
                                     </div>
