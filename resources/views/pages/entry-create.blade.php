@@ -96,7 +96,7 @@
                                             <label for="inputPassword6" class="col-form-label">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01" onchange="changeColor(this)"
+                                            <select class="form-select" id="select1" onchange="changeColor(this)"
                                                 name="incoming_buffer">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -122,7 +122,7 @@
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
+                                            <select class="form-select" id="select2"
                                                 onchange="changeColor2(this)" name="incoming_core">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -155,7 +155,7 @@
                                             <label for="inputPassword6" class="col-form-label ">Buffer :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
+                                            <select class="form-select" id="select3"
                                                 onchange="changeColor3(this)" name="outgoing_buffer">
                                                 <option value="Blue" selected>Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -180,7 +180,7 @@
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
-                                            <select class="form-select" id="inputGroupSelect01"
+                                            <select class="form-select" id="select4"
                                                 onchange="changeColor4(this)" name="outgoing_core">
                                                 <option value="Blue">Blue</option>
                                                 <option value="Orange">Orange </option>
@@ -205,7 +205,7 @@
                                     </div>
 
                                     <div class="container-login100-form-btn flex-col-c pt-3">
-                                        <button type="submit" class="btn btn-secondary add-btn">Create Entry</button>
+                                        <button type="submit"  onclick="sendSelectedColors()" class="btn btn-secondary add-btn">Create Entry</button>
                                     </div>
                                 </form>
                             </div>
