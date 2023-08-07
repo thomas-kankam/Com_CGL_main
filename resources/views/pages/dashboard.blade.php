@@ -436,147 +436,97 @@
                         </div>
                     </div>
                 @endif
-
-                <!-- ============================================================== -->
-                <!-- RECENT CHANGES -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12">
-                        <div class="white-box">
-                            <div class="d-md-flex mb-3">
-                                <h3 class="box-title mb-0">Recent Changes</h3>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table no-wrap" id="example">
-                                    <thead>
+            </div>
+            <!-- ============================================================== -->
+            <!-- RECENT CHANGES -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="white-box">
+                        <div class="d-md-flex mb-3">
+                            <h3 class="box-title mb-0">Recent Changes</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table no-wrap" id="example">
+                                <thead>
+                                    <tr>
+                                        <th class="border-top-0">#</th>
+                                        <th class="border-top-0">Change Type</th>
+                                        <th class="border-top-0">Location</th>
+                                        <th class="border-top-0">Incoming(B/C) - (C/B)Outgoing</th>
+                                        <th class="border-top-0">Engineer Email</th>
+                                        <th class="border-top-0">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($allEntries as $entries)
                                         <tr>
-                                            <th class="border-top-0">#</th>
-                                            <th class="border-top-0">Change Type</th>
-                                            <th class="border-top-0">Location</th>
-                                            <th class="border-top-0">Incoming(B/C) - (C/B)Outgoing</th>
-                                            <th class="border-top-0">Engineer Email</th>
-                                            <th class="border-top-0">Time</th>
-                                            <th class="border-top-0">Action</th>
+                                            <td class="id">{{ $entries->id ?? '' }}</td>
+                                            <td class="txt-oflo">{{ $entries->action }}</td>
+                                            <td>{{ $entries->location }}</td>
+                                            <td class="txt-oflo">
+                                                <canvas id="square" width="20px" height="20px"
+                                                    data-color="{{ $entries->incoming_buffer }}" class="m-l-40"></canvas>
+                                                <canvas id="square2" width="20px" height="20px"
+                                                    data-color="{{ $entries->incoming_core }}">
+                                                </canvas>
+                                                <canvas id="square3" width="20px" height="20px"
+                                                    data-color="{{ $entries->outgoing_buffer }}" class="m-l-40"></canvas>
+                                                <canvas id="square4" width="20px" height="20px"
+                                                    data-color="{{ $entries->outgoing_core }}">
+                                                </canvas>
+                                            </td>
+                                            <td><span class="text">{{ $entries->user_email }}</span></td>
+                                            <td><span
+                                                    class="text-success">{{ $entries->created_at->diffForHumans() }}</span>
+                                            </td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($allEntries as $entries)
-                                            <tr>
-                                                <td class="id">{{ $entries->id }}</td>
-                                                <td class="txt-oflo">{{ $entries->action }}</td>
-                                                <td>{{ $entries->location }}</td>
-                                                <td class="txt-oflo">
-                                                    <canvas id="square" width="20px" height="20px"
-                                                        data-color="{{ $entries->incoming_buffer }}"
-                                                        class="m-l-40"></canvas>
-                                                    <canvas id="square2" width="20px" height="20px"
-                                                        data-color="{{ $entries->incoming_core }}">
-                                                    </canvas>
-                                                    <canvas id="square3" width="20px" height="20px"
-                                                        data-color="{{ $entries->outgoing_buffer }}"
-                                                        class="m-l-40"></canvas>
-                                                    <canvas id="square4" width="20px" height="20px"
-                                                        data-color="{{ $entries->outgoing_core }}">
-                                                    </canvas>
-                                                </td>
-                                                <td><span class="text">{{ $entries->user_email }}</span></td>
-                                                <td><span
-                                                        class="text-success">{{ $entries->created_at->diffForHumans() }}</span>
-                                                </td>
-                                                <td>
-                                                    @if (Auth::user()->role == 'Super Administrator')
-                                                        <a href="{{ route('entry.edit', $entries->id) }}"><button
-                                                                class="btn-info">Edit</button></a>
-                                                        <a href="{{ route('entry.destroy', $entries->id) }}"><button
-                                                                class="btn-danger" data-bs-toggle="modal"
-                                                                data-bs-target="#danger-header-modal"
-                                                                onclick="event.preventDefault();">Delete</button></a>
-                                                    @elseif (Auth::user()->id == $entries->user_id)
-                                                        <a href="{{ route('entry.edit', $entries->id) }}"><button
-                                                                class="btn-info">Edit</button></a>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Danger Header Modal -->
-                <div id="danger-header-modal" class="modal fade" tabindex="-1" role="dialog"
-                    aria-labelledby="danger-header-modalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        @foreach ($entries as $entry)
-                            <form action="{{ route('entry.destroy', $entries->id) }}" method="POST"
-                                id="deleteCategoryForm">
-                                @csrf
-                                @method('DELETE')
-
-                                <div class="modal-content">
-                                    <div class="modal-header bg-danger">
-                                        <h4 class="modal-title" id="danger-header-modalLabel">Confirm Delete</h4>
-                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                            aria-hidden="true"></button>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <p class="text-bold">
-                                            Are you sure you want to delete this record ?
-                                        </p>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-light"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                                    </div>
-                                </div><!-- /.modal-content -->
-                            </form>
-                        @endforeach
-                    </div><!-- /.modal-dialog -->
-                </div>
-                <!-- ============================================================== -->
-                <!-- Recent Comments -->
-                <!-- ============================================================== -->
-                @if (Auth::user()->role == 'Super Administrator')
-                    <div class="row">
-                        <!-- .col -->
-                        <div class="col-md-12 col-lg-12 col-sm-12">
-                            <div class="card white-box p-0">
-                                <div class="card-body">
-                                    <h3 class="box-title mb-0">Recent Comments</h3>
-                                </div>
-                                <div class="comment-widgets">
-                                    <!-- Comment Row -->
-                                    @foreach ($comments as $comment)
-                                        <div class="d-flex flex-row comment-row p-3">
-                                            <div class="p-2"><img
-                                                    src="{{ asset('assets/plugins/images/users/man-i.png') }}"
-                                                    alt="user" width="50" class="rounded-circle"></div>
-                                            <div class="comment-text ps-2 ps-md-3 w-100">
-                                                <h5 class="font-medium">{{ $comment->user->email }}</h5>
-                                                <span class="mb-3 d-block">{{ $comment->other }}</span>
-                                                <div class="comment-footer d-md-flex align-items-center">
-                                                    <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">
-                                                        {{ $comment->created_at->format('F d, Y') }}</div>
-                                                </div>
+            <!-- ============================================================== -->
+            <!-- Recent Comments -->
+            <!-- ============================================================== -->
+            @if (Auth::user()->role == 'Super Administrator')
+                <div class="row">
+                    <!-- .col -->
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="card white-box p-0">
+                            <div class="card-body">
+                                <h3 class="box-title mb-0">Recent Comments</h3>
+                            </div>
+                            <div class="comment-widgets">
+                                <!-- Comment Row -->
+                                @foreach ($comments as $comment)
+                                    <div class="d-flex flex-row comment-row p-3">
+                                        <div class="p-2"><img
+                                                src="{{ asset('assets/plugins/images/users/man-i.png') }}" alt="user"
+                                                width="50" class="rounded-circle"></div>
+                                        <div class="comment-text ps-2 ps-md-3 w-100">
+                                            <h5 class="font-medium">{{ $comment->user->email }}</h5>
+                                            <span class="mb-3 d-block">{{ $comment->other }}</span>
+                                            <div class="comment-footer d-md-flex align-items-center">
+                                                <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">
+                                                    {{ $comment->created_at->format('F d, Y') }}</div>
                                             </div>
                                         </div>
-                                    @endforeach
-                                    {{-- Pagination --}}
-                                    <div class="d-flex justify-content-center">
-                                        {{ $comments->links() }}
                                     </div>
+                                @endforeach
+                                {{-- Pagination --}}
+                                <div class="d-flex justify-content-center">
+                                    {{ $comments->links() }}
                                 </div>
                             </div>
-                            @include('layouts.partials.footer')
                         </div>
+                        @include('layouts.partials.footer')
                     </div>
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

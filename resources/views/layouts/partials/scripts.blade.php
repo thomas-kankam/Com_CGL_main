@@ -14,3 +14,20 @@
 <script src="{{ asset('assets/vendor/countdowntime/countdowntime.js') }}"></script>
 <!--===============================================================================================-->
 <script src="{{ asset('assets/js/main.js') }}"></script>
+
+<script>
+    function handleDelete(id) {
+        var form = document.getElementById('deleteCategoryForm')
+        form.action = '/entry/' + id
+        $('#deleteModal').modal('show')
+    }
+    // $(document).ready(function () {
+    //     $('#deleteModal').on('show.bs.modal', function (event) {
+    //         var button = $(event.relatedTarget);
+    //         var blacklist = button.data('blacklist');
+    //         var form = $('#deleteForm');
+
+    //         form.attr('action', form.attr('action').replace('blacklists/{id}', blacklist));
+    //     });
+    // });
+</script>

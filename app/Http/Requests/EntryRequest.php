@@ -24,8 +24,8 @@ class EntryRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|integer',
-            'user_email' => 'required|email',
+            'user_id' => 'nullable|integer',
+            'user_email' => 'nullable|email',
             'action' => 'required|string',
             'other' => 'required|string',
             'location' => 'required|string',

@@ -23,7 +23,7 @@
                             <table class="table no-wrap" id="example">
                                 <thead>
                                     <tr>
-                                        {{-- <th class="border-top-0">#</th> --}}
+                                        <th class="border-top-0">#</th>
                                         <th class="border-top-0">Change Type</th>
                                         <th class="border-top-0">Location</th>
                                         <th class="border-top-0">Incoming-Location</th>
@@ -37,7 +37,7 @@
                                 <tbody>
                                     @foreach ($entries as $entry)
                                         <tr>
-                                            {{-- <td class="id">{{ $entry->id }}</td> --}}
+                                            <td class="id">{{ $entry->id }}</td>
                                             <td class="txt-oflo">{{ $entry->action }}</td>
                                             <td>{{ $entry->location }}</td>
                                             <td>{{ $entry->incoming_cable }}</td>
@@ -61,10 +61,9 @@
                                                 @if (Auth::user()->role == 'Super Administrator')
                                                     <a href="{{ route('entry.edit', $entry->id) }}"><button
                                                             class="btn-info">Edit</button></a>
-                                                    <a href="{{ route('entry.destroy', $entry->id) }}"><button
-                                                            class="btn-danger" data-bs-toggle="modal"
-                                                            data-bs-target="#danger-header-modal"
-                                                            onclick="event.preventDefault();">Delete</button></a>
+                                                    <button class="btn-danger" data-toggle="modal"
+                                                        data-target="#deleteModal"
+                                                        onclick="handleDelete({{ $entry->id }})">Delete</button>
                                                 @elseif (Auth::user()->id == $entry->user_id)
                                                     <a href="{{ route('entry.edit', $entry->id) }}"><button
                                                             class="btn-info">Edit</button></a>
@@ -78,38 +77,36 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Danger Header Modal -->
-            <div id="danger-header-modal" class="modal fade" tabindex="-1" role="dialog"
-                aria-labelledby="danger-header-modalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    @foreach ($entries as $entry)
-                        <form action="{{ route('entry.destroy', $entry->id) }}" method="POST" id="deleteCategoryForm">
-                            @csrf
-                            @method('DELETE')
-
-                            <div class="modal-content">
-                                <div class="modal-header bg-danger">
-                                    <h4 class="modal-title" id="danger-header-modalLabel">Confirm Delete</h4>
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                        aria-hidden="true"></button>
-                                </div>
-
-                                <div class="modal-body">
-                                    <p class="text-bold">
-                                        Are you sure you want to delete this record ?
-                                    </p>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </form>
-                    @endforeach
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
         </div>
+
+        <!-- Danger Header Modal -->
+        <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="danger-header-modalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="" method="POST" id="deleteCategoryForm">
+                    @csrf
+                    @method('DELETE')
+
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger">
+                            <h4 class="modal-title" id="danger-header-modalLabel">Confirm Delete</h4>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-hidden="true"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p class="text-bold">
+                                Are you sure you want to delete this record ?
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </form>
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </div>
 @endsection
