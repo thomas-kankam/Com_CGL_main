@@ -124,8 +124,8 @@
 
                                 <div class="form-group mb-4">
                                     <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-success">Update Profile</button>
-                                        <a type="submit" class="btn btn-secondary ms-5"
+                                        <button type="submit" class="btn btn-danger text-white">Update Profile</button>
+                                        <a type="submit" class="btn btn-danger text-white"
                                             href="{{ route('changePassword') }}">Change Password</a>
                                     </div>
                                 </div>

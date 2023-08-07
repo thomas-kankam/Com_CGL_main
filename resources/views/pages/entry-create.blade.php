@@ -1,5 +1,7 @@
     @extends('layouts.auth')
 
+   
+
     @section('content')
         <div class="page-wrapper">
             <!-- ============================================================== -->
@@ -76,15 +78,15 @@
                                     </div>
                                     <div class="row g-3 align-items-center">
                                         <div class="col-auto">
-                                          <label for="inputPassword6" class="col-form-label">Longitude</label>
+                                          <label for="inputPassword6" class="col-form-label">Longitude:</label>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="margin-left: 7px">
                                           <input type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
                                         </div>
                                         <div class="col-auto">
-                                            <label for="inputPassword6" class="col-form-label">Latitude</label>
+                                            <label for="" class="col-form-label">Latitude :</label>
                                           </div>
-                                          <div class="col-auto">
+                                          <div class="col-auto" style="margin-left: 14px">
                                             <input type="text" id="" class="form-control" aria-describedby="">
                                           </div>
                                       </div>
@@ -149,11 +151,13 @@
                                         </div>
 
                                         <div class="col-auto">
-                                            <span id="passwordHelpInline" class="form-text">
+                                            
+                                            <span id="passwordHelpInline" class="responsive" style="margin-right: 50px;">
                                                 <canvas id="square" width="30px" height="30px"></canvas>
                                             </span>
                                         </div>
-                                        <div class="col-auto col-auto-c m-l-200">
+
+                                        <div class="col-auto col-auto-c" style="margin-right: 10px">
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
@@ -212,11 +216,11 @@
                                             </select>
                                         </div>
                                         <div class="col-auto">
-                                            <span id="passwordHelpInline" class="form-text">
+                                            <span id="passwordHelpInline" class="form-text" style="margin-right: 50px;">
                                                 <canvas id="square3" width="30px" height="30px"> </canvas>
                                             </span>
                                         </div>
-                                        <div class="col-auto col-auto-c m-l-200">
+                                        <div class="col-auto col-auto-c" style="margin-right: 10px">
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
                                         <div class="col-auto">
@@ -246,7 +250,7 @@
 
                                     <div class="container-login100-form-btn flex-col-c pt-3">
                                         <button type="submit" onclick="sendSelectedColors()"
-                                            class="btn btn-secondary add-btn">Create Entry</button>
+                                            class="btn btn-danger text-white add-btn">Create Entry</button>
                                     </div>
                                 </form>
                             </div>
