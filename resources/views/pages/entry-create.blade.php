@@ -74,6 +74,20 @@
                                         <input type="text" name="location" class="form-control"
                                             id="exampleFormControlInput1" placeholder="Current Location">
                                     </div>
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-auto">
+                                          <label for="inputPassword6" class="col-form-label">Longitude</label>
+                                        </div>
+                                        <div class="col-auto">
+                                          <input type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="inputPassword6" class="col-form-label">Latitude</label>
+                                          </div>
+                                          <div class="col-auto">
+                                            <input type="text" id="" class="form-control" aria-describedby="">
+                                          </div>
+                                      </div>
                                     {{-- <div class="wrap-input100 mb-3">
                                         <label for="exampleFormControlInput1"
                                             class="form-label">{{ $data->latitude }}</label>
@@ -106,6 +120,11 @@
                                             cable</label>
                                         <input type="text" name="incoming_cable" class="form-control"
                                             id="exampleFormControlInput1" placeholder="Cable location">
+                                    </div>
+                                    <div class="wrap-input100 mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Cable Type</label>
+                                        <input type="text" name="incoming_cable" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Cable Type">
                                     </div>
                                     <div class="row g-3 align-items-center m-t-">
                                         <div class="col-auto">
@@ -165,6 +184,11 @@
                                         <label for="exampleFormControlInput1" class="form-label">Outgoing cable</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             placeholder="Cable location" name="outgoing_cable">
+                                    </div>
+                                    <div class="wrap-input100 mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Cable Type</label>
+                                        <input type="text" name="" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Cable type">
                                     </div>
                                     <div class="row g-3 align-items-center m-t-2">
                                         <div class="col-auto">
