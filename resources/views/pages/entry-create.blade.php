@@ -125,7 +125,7 @@
                                     </div>
                                     <div class="wrap-input100 mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Cable Type</label>
-                                        <input type="text" name="incoming_cable" class="form-control"
+                                        <input type="text" name="" class="form-control"
                                             id="exampleFormControlInput1" placeholder="Cable Type">
                                     </div>
                                     <div class="row g-3 align-items-center m-t-">
