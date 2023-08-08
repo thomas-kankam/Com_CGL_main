@@ -466,15 +466,18 @@
                                             <td>{{ $entries->location }}</td>
                                             <td class="txt-oflo">
                                                 <canvas id="square" width="20px" height="20px"
-                                                    data-color="{{ $entries->incoming_buffer }}" class="m-l-40"></canvas>
+                                                    data-color="{{ $entries->incoming_buffer }}" class="m-l-40">
+                                                </canvas>
                                                 <canvas id="square2" width="20px" height="20px"
                                                     data-color="{{ $entries->incoming_core }}">
                                                 </canvas>
-                                                <canvas id="square3" width="20px" height="20px"
-                                                    data-color="{{ $entries->outgoing_buffer }}" class="m-l-40"></canvas>
                                                 <canvas id="square4" width="20px" height="20px"
-                                                    data-color="{{ $entries->outgoing_core }}">
+                                                    data-color="{{ $entries->outgoing_core }}" class="m-l-40">
                                                 </canvas>
+                                                <canvas id="square3" width="20px" height="20px"
+                                                    data-color="{{ $entries->outgoing_buffer }}" >
+                                                </canvas>
+                                                
                                             </td>
                                             <td><span class="text">{{ $entries->user_email }}</span></td>
                                             <td><span
