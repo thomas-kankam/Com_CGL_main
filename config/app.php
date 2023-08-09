@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Stevebauman\Location\LocationServiceProvider::class,
+        // Stevebauman\Location\LocationServiceProvider::class,
 
     ],
 
@@ -232,7 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Location' => 'Stevebauman\Location\Facades\Location',
+        // 'Location' => 'Stevebauman\Location\Facades\Location',
 
     ],
 

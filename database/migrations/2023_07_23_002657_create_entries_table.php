@@ -15,10 +15,14 @@ class CreateEntriesTable extends Migration
             $table->string('action')->nullable();
             $table->string('other')->nullable();
             $table->string('location')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
             $table->string('incoming_cable')->nullable();
+            $table->string('incoming_cable_type')->nullable();
             $table->string('incoming_buffer')->nullable();
             $table->string('incoming_core')->nullable();
             $table->string('outgoing_cable')->nullable();
+            $table->string('outgoing_cable_type')->nullable();
             $table->string('outgoing_buffer')->nullable();
             $table->string('outgoing_core')->nullable();
             $table->timestamps();

@@ -1,6 +1,6 @@
     @extends('layouts.auth')
 
-   
+
 
     @section('content')
         <div class="page-wrapper">
@@ -78,39 +78,20 @@
                                     </div>
                                     <div class="row g-3 align-items-center">
                                         <div class="col-auto">
-                                          <label for="inputPassword6" class="col-form-label">Longitude:</label>
+                                            <label for="longitude" class="col-form-label">Longitude:</label>
                                         </div>
                                         <div class="col-auto" style="margin-left: 7px">
-                                          <input type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
+                                            <input type="text" id="longitude" class="form-control"
+                                                aria-describedby="passwordHelpInline" name="longitude">
                                         </div>
                                         <div class="col-auto">
-                                            <label for="" class="col-form-label">Latitude :</label>
-                                          </div>
-                                          <div class="col-auto" style="margin-left: 14px">
-                                            <input type="text" id="" class="form-control" aria-describedby="">
-                                          </div>
-                                      </div>
-                                    {{-- <div class="wrap-input100 mb-3">
-                                        <label for="exampleFormControlInput1"
-                                            class="form-label">{{ $data->latitude }}</label>
-                                        <input type="text" name="latitude" class="form-control"
-                                            id="exampleFormControlInput1" placeholder="Current Latitude">
-                                    </div> --}}
-
-
-                                    {{-- <div class="wrap-input100 mb-3">
-                                        <label for="exampleFormControlInput1"
-                                            class="form-label">{{ $data->longtitude }}</label>
-                                        <input type="text" name="longitude" class="form-control"
-                                            id="exampleFormControlInput1" placeholder="Current Longitude">
-                                    </div> --}}
-
-                                    {{-- <div class="wrap-input100 mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Engineer</label>
-                                        <input type="text" name="user_id" class="form-control"
-                                            value="{{ Auth::user()->id }}" id="exampleFormControlInput1"
-                                            placeholder="Current Location" hidden>
-                                    </div> --}}
+                                            <label for="latitude" class="col-form-label">Latitude :</label>
+                                        </div>
+                                        <div class="col-auto" style="margin-left: 14px">
+                                            <input type="text" id="latitude" name="latitude" class="form-control"
+                                                aria-describedby="">
+                                        </div>
+                                    </div>
 
                                     <div class="wrap-input100 mb-3">
                                         <input type="text" name="user_email" class="form-control"
@@ -125,7 +106,7 @@
                                     </div>
                                     <div class="wrap-input100 mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Cable Type</label>
-                                        <input type="text" name="" class="form-control"
+                                        <input type="text" name="incoming_cable_type" class="form-control"
                                             id="exampleFormControlInput1" placeholder="Cable Type">
                                     </div>
                                     <div class="row g-3 align-items-center m-t-">
@@ -151,7 +132,7 @@
                                         </div>
 
                                         <div class="col-auto">
-                                            
+
                                             <span id="passwordHelpInline" class="responsive" style="margin-right: 50px;">
                                                 <canvas id="square" width="30px" height="30px"></canvas>
                                             </span>
@@ -191,7 +172,7 @@
                                     </div>
                                     <div class="wrap-input100 mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Cable Type</label>
-                                        <input type="text" name="" class="form-control"
+                                        <input type="text" name="outgoing_cable_type" class="form-control"
                                             id="exampleFormControlInput1" placeholder="Cable type">
                                     </div>
                                     <div class="row g-3 align-items-center m-t-2">

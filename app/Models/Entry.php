@@ -16,10 +16,14 @@ class Entry extends Model
         'user_id', // 'user_id' is the foreign key
         'user_email',
         'location',
+        'longitude',
+        'latitude',
         'incoming_cable',
+        'incoming_cable_type',
         'incoming_buffer',
         'incoming_core',
         'outgoing_cable',
+        'outgoing_cable_type',
         'outgoing_buffer',
         'outgoing_core',
     ];
