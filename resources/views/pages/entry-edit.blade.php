@@ -7,10 +7,9 @@
         <!-- ============================================================== -->
         <div class="page-breadcrumb bg-white">
             <div class="row align-items-center">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">View</h4>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 mt-3">
+                    <h4 class="page-title">Edit Entries</h4>
                 </div>
-
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -152,7 +151,7 @@
 
                                         <!-- For incoming_buffer -->
                                         <div class="col-auto">
-                                            <span id="passwordHelpInline" class="form-text">
+                                            <span id="passwordHelpInline" class="form-text" style="margin-right: 50px;">
                                                 <canvas id="square" data-color="{{ $entry->incoming_buffer }}"
                                                     width="30px" height="30px"></canvas>
                                             </span>
@@ -163,7 +162,7 @@
                                         <div class="col-auto">
                                             <div class="col-auto">
                                                 <select class="form-select" id="inputPassword6"
-                                                    onchange="changeColor2(this)" name="incoming_core">
+                                                    onchange="changeColor2(this)" name="incoming_core" style="margin-right: 10px">
                                                     <option value="Blue"
                                                         @if ($entry->incoming_core === 'Blue') selected @endif>
                                                         Blue</option>
@@ -218,7 +217,7 @@
                                     <div class="wrap-input100 mb-3 m-t-40">
                                         <label for="outgoing_cable" class="form-label">Outgoing cable</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                                            value="{{ $entry->outgoing_cable }}" name=outgoing_cable"
+                                            value="{{ $entry->outgoing_cable }}" name="outgoing_cable"
                                             placeholder="Cable location">
                                     </div>
                                     <div class="wrap-input100 mb-3">
@@ -265,19 +264,19 @@
                                             </select>
                                         </div>
                                         <div class="col-auto">
-                                            <span id="passwordHelpInline" class="form-text">
+                                            <span id="passwordHelpInline" class="form-text" style="margin-right: 50px;">
                                                 <canvas id="square3" data-color="{{ $entry->outgoing_buffer }}"
                                                     width="30px" height="30px"> </canvas>
                                             </span>
                                         </div>
 
-                                        <div class="col-auto col-auto-c m-l-200">
+                                        <div class="col-auto col-auto-c m-l-200" >
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
 
                                         <div class="col-auto">
                                             <select class="form-select" id="inputPassword6" onchange="changeColor4(this)"
-                                                name="outgoing_core">
+                                                name="outgoing_core" style="margin-right: 10px">
                                                 <option value="Blue" @if ($entry->outgoing_core === 'Blue') selected @endif>
                                                     Blue</option>
                                                 <option value="Orange" @if ($entry->outgoing_core === 'Orange') selected @endif>
@@ -329,7 +328,7 @@
                                     </div>
                                 </fieldset disabled>
                                 <div class="container-login100-form-btn flex-col-c">
-                                    <button type="submit" class="btn btn-secondary add-btn">Save Edited Entry</button>
+                                    <button type="submit" class="btn btn-danger add-btn text-white">Save Edited Entry</button>
                                 </div>
                                 {{-- {{ dd($request->all()) }} --}}
                             </form>
