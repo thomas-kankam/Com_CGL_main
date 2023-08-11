@@ -246,25 +246,24 @@ iframe {
     }
   }
 
-  @media only screen and (max-width: 280px){
-    .login100-form-btn1{
-      margin-left: 30px;
-    }
-    .login100-form-btn{
+  
+}
+
+@media only screen and (max-width: 280px){  
+  .container-login100-form-btn{
       margin-bottom: 30px;
       min-width: 1px;
-      margin-left: 30px;
+      display:block ;
+      margin-right: 30px;
     }
+  .contact100-form-checkbox{
+    display: none;
   }
 }
 
 
 
-@media only screen and (min-width: 600px){
-  .login100-form-btn1{
-    margin-left: 30px;
-  }
-}
+
 
 
 

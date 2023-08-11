@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="limiter">
-        <div class="container-login100">
+        <div class="container-login100" style="background-image: url('assets/plugins/images/compressednetworkimg.jpg'); background-size:cover;">
             <div class="wrap-login100">
                 <div class="login100-form-title"
                     style="background-image: url('{{ asset('assets/plugins/images/bg-01.jfif') }}')">
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="container-login100-form-btn d-flex justify-content-end">
-                            <button class="login100-form-btn" type="submit">{{ __('Log In') }}</button>
+                            <button class="login100-form-btn" type="submit" style="margin-left: 50px;">{{ __('Log In') }}</button>
                             {{-- <a class="login100-form-btn1" href="/register">{{ __('Sign Up') }}</a> --}}
                         </div>
                     </div>

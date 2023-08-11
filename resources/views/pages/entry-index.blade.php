@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- ============================================================== -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="background-image: url('assets/plugins/images/compressednetworkimg.jpg'); background-size:cover;">
         <!-- ============================================================== -->
         <!-- BREADCRUMB PLACE -->
         <!-- ============================================================== -->

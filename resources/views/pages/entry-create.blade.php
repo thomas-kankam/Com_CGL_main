@@ -3,7 +3,7 @@
 
 
     @section('content')
-        <div class="page-wrapper">
+        <div class="page-wrapper" style="background-color:#B0063A">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
