@@ -6,6 +6,8 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/images/icons/favicon.icon') }}" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link href="{{ asset('assets/css/table-res-style.css') }}" rel="stylesheet">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">

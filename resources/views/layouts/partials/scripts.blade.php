@@ -21,13 +21,4 @@
         form.action = '/entry/' + id
         $('#deleteModal').modal('show')
     }
-    // $(document).ready(function () {
-    //     $('#deleteModal').on('show.bs.modal', function (event) {
-    //         var button = $(event.relatedTarget);
-    //         var blacklist = button.data('blacklist');
-    //         var form = $('#deleteForm');
-
-    //         form.attr('action', form.attr('action').replace('blacklists/{id}', blacklist));
-    //     });
-    // });
 </script>

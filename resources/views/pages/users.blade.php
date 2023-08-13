@@ -1,7 +1,8 @@
     @extends('layouts.auth')
 
     @section('content')
-        <div class="page-wrapper" style="background-image: url('assets/plugins/images/compressednetworkimg.jpg'); background-size:cover;">
+        <div class="page-wrapper"
+            style="background-image: url('assets/plugins/images/compressednetworkimg.jpg'); background-size:cover;">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -37,26 +38,27 @@
                             @endif
 
                             <div class="table-responsive">
-                                <table class="table no-wrap table-striped" id="example">
+                                <table class="table no-wrap table-striped mx-auto" id="example">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">#</th>
+                                            <th class="border-top-0 d-none d-sm-table-cell">#</th>
                                             <th class="border-top-0">Username</th>
-                                            <th class="border-top-0">Email</th>
-                                            <th class="border-top-0">Role</th>
+                                            <th class="border-top-0 d-none d-sm-table-cell">Email</th>
+                                            <th class="border-top-0 d-none d-sm-table-cell">Role</th>
                                             <th class="border-top-0">Contact</th>
-                                            <th class="border-top-0">Date Created</th>
+                                            <th class="border-top-0 d-none d-sm-table-cell">Date Created</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($users as $user)
                                             <tr>
-                                                <td class="id" scope="row">{{ $user->id }}</td>
+                                                <td class="id d-none d-sm-table-cell" scope="row">{{ $user->id }}
+                                                </td>
                                                 <td class="name">{{ $user->name }}</td>
-                                                <td class="email">{{ $user->email }}</td>
-                                                <td class="role">{{ $user->role }}</td>
+                                                <td class="email d-none d-sm-table-cell">{{ $user->email }}</td>
+                                                <td class="role d-none d-sm-table-cell">{{ $user->role }}</td>
                                                 <td class="contact">{{ $user->contact }}</td>
-                                                <td class="date">{{ $user->created_at }}</td>
+                                                <td class="date d-none d-sm-table-cell">{{ $user->created_at }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

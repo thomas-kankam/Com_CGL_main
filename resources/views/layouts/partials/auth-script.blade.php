@@ -98,3 +98,21 @@
         canvas.style.backgroundColor = colorCode;
     });
 </script>
+
+<script>
+    function isMobileViews() {
+        return window.innerWidth <= 767;
+    }
+
+    function loadViews() {
+        if (isMobileDevice()) {
+            document.querySelector('.desktop-view').computedStyleMap.display = "none";
+            document.querySelector('.mobile-view').computedStyleMap.display = "block";
+        } else {
+            document.querySelector('.mobile-view').computedStyleMap.display = "none";
+            document.querySelector('.desktop-view').computedStyleMap.display = "block";
+        }
+    }
+
+    loadViews();
+</script>
