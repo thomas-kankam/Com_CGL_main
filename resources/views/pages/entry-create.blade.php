@@ -3,6 +3,32 @@
 
 
     @section('content')
+    <style>
+    .col-auto {
+        display: inline-block;
+        margin-right: 10px; /* Add some spacing between elements */
+        width:30%;
+    }
+
+    @media (max-width: 540px) {
+    .rez-width {
+        display: block;
+        margin-top: 10px; /* Add some spacing between rows */
+        }
+    }
+
+    .rez-width {
+        width: auto;
+        margin-right: 0px;
+    }
+
+    @media (max-width: 420px) {
+    .col-auto-c {
+        display: block;
+        margin-top: 10px; /* Add some spacing between rows */
+        }
+    }
+    </style>
         <div class="page-wrapper" style="background-color:#B0063A">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
@@ -36,7 +62,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Create entries here </h4>
-                                <h6 class="card-subtitle">Enter new actions : <code> Core change, New establishment, etc
+                                <h6 class="card-subtitle">Enter new action :<code> Core change, New establishment, etc
                                     </code>
                                 </h6>
                             </div>
@@ -76,18 +102,26 @@
                                         <input type="text" name="location" class="form-control"
                                             id="exampleFormControlInput1" placeholder="Current Location">
                                     </div>
+                                    <div class="input-group mb-3 m-t-40">
+                                        <label class="input-group-text" for="inputGroupSelect01">Chamber Type</label>
+                                        <select class="form-select" id="inputGroupSelect01" name="action">
+                                            <option selected disabled>Select Type</option>
+                                            <option value="New Core">New Chamber</option>
+                                            <option value="Core Change">Old Chamber</option>
+                                        </select>
+                                    </div>
                                     <div class="row g-3 align-items-center">
-                                        <div class="col-auto">
+                                        <div class="col-auto rez-width">
                                             <label for="longitude" class="col-form-label">Longitude:</label>
                                         </div>
-                                        <div class="col-auto" style="margin-left: 7px">
+                                        <div class="col-auto rez-width">
                                             <input type="text" id="longitude" class="form-control"
                                                 aria-describedby="passwordHelpInline" name="longitude">
                                         </div>
-                                        <div class="col-auto">
-                                            <label for="latitude" class="col-form-label">Latitude :</label>
+                                        <div class="col-auto rez-width">
+                                            <label for="latitude" class="col-form-label">Latitude:</label>
                                         </div>
-                                        <div class="col-auto" style="margin-left: 14px">
+                                        <div class="col-auto rez-width" style="margin-left: 10px;">
                                             <input type="text" id="latitude" name="latitude" class="form-control"
                                                 aria-describedby="">
                                         </div>
@@ -113,7 +147,7 @@
                                         <div class="col-auto">
                                             <label for="inputPassword6" class="col-form-label">Buffer :</label>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="margin-right:0px;">
                                             <select class="form-select" id="select1" onchange="changeColor(this)"
                                                 name="incoming_buffer">
                                                 <option value="Blue" selected>Blue</option>
@@ -141,7 +175,7 @@
                                         <div class="col-auto col-auto-c" style="margin-right: 10px">
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="margin-right:0px;">
                                             <select class="form-select" id="select2" onchange="changeColor2(this)"
                                                 name="incoming_core">
                                                 <option value="Blue" selected>Blue</option>
@@ -179,7 +213,7 @@
                                         <div class="col-auto">
                                             <label for="inputPassword6" class="col-form-label ">Buffer :</label>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="margin-right:0px;">
                                             <select class="form-select" id="select3" onchange="changeColor3(this)"
                                                 name="outgoing_buffer">
                                                 <option value="Blue" selected>Blue</option>
@@ -204,7 +238,7 @@
                                         <div class="col-auto col-auto-c" style="margin-right: 10px">
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="margin-right:0px;">
                                             <select class="form-select" id="select4" onchange="changeColor4(this)"
                                                 name="outgoing_core">
                                                 <option value="Blue">Blue</option>

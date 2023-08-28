@@ -1,7 +1,34 @@
 @extends('layouts.auth')
 
 @section('content')
-    <div class="page-wrapper" style="background-image: url('assets/plugins/images/compressednetworkimg.jpg'); background-size:cover;">
+
+<style>
+    .col-auto {
+        display: inline-block;
+        margin-right: 10px; /* Add some spacing between elements */
+        width:30%;
+    }
+
+    @media (max-width: 540px) {
+    .rez-width {
+        display: block;
+        margin-top: 10px; /* Add some spacing between rows */
+        }
+    }
+
+    .rez-width {
+        width: auto;
+        margin-right: 0px;
+    }
+
+    @media (max-width: 420px) {
+    .col-auto-c {
+        display: block;
+        margin-top: 10px; /* Add some spacing between rows */
+        }
+    }
+    </style>
+    <div class="page-wrapper" style="background-color:#B0063A">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
@@ -84,19 +111,27 @@
                                         <input type="text" name="location" value="{{ $entry->location }}"
                                             class="form-control" id="location" placeholder="Current Location">
                                     </div>
+                                    <div class="input-group mb-3 m-t-40">
+                                        <label class="input-group-text" for="inputGroupSelect01">Chamber Type</label>
+                                        <select class="form-select" id="inputGroupSelect01" name="action">
+                                            <option selected disabled>Select Type</option>
+                                            <option value="New Core">New Chamber</option>
+                                            <option value="Core Change">Old Chamber</option>
+                                        </select>
+                                    </div>
                                     <div class="row g-3 align-items-center">
-                                        <div class="col-auto">
+                                        <div class="col-auto rez-width">
                                             <label for="longitude" class="col-form-label">Longitude:</label>
                                         </div>
-                                        <div class="col-auto" style="margin-left: 7px">
+                                        <div class="col-auto rez-width">
                                             <input type="text" id="longitude" class="form-control"
                                                 aria-describedby="passwordHelpInline" name="longitude"
                                                 value="{{ $entry->longitude }}">
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto rez-width">
                                             <label for="latitude" class="col-form-label">Latitude :</label>
                                         </div>
-                                        <div class="col-auto" style="margin-left: 14px">
+                                        <div class="col-auto rez-width" style="margin-left: 10px">
                                             <input type="text" id="latitude" name="latitude" class="form-control"
                                                 value="{{ $entry->latitude }}" aria-describedby="">
                                         </div>
@@ -116,7 +151,7 @@
                                         <div class="col-auto">
                                             <label for="inputPassword6" class="col-form-label">Buffer :</label>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="margin-right:0px;">
                                             <select class="form-select" id="inputPassword6" onchange="changeColor(this)"
                                                 name="incoming_buffer">
                                                 <option value="Blue" @if ($entry->incoming_buffer === 'Blue') selected @endif>
@@ -156,11 +191,10 @@
                                                     width="30px" height="30px"></canvas>
                                             </span>
                                         </div>
-                                        <div class="col-auto col-auto-c m-l-200">
+                                        <div class="col-auto col-auto-c"  style="margin-right: 10px">
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
-                                        <div class="col-auto">
-                                            <div class="col-auto">
+                                        <div class="col-auto" style="margin-right:0px;">
                                                 <select class="form-select" id="inputPassword6"
                                                     onchange="changeColor2(this)" name="incoming_core" style="margin-right: 10px">
                                                     <option value="Blue"
@@ -202,7 +236,6 @@
                                                         @if ($entry->incoming_core === 'Aqua') selected @endif>
                                                         Aqua</option>
                                                 </select>
-                                            </div>
                                         </div>
 
                                         <!-- For incoming_core -->
@@ -230,7 +263,7 @@
                                         <div class="col-auto">
                                             <label for="inputPassword6" class="col-form-label">Buffer :</label>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="margin-right:0px;">
                                             <select class="form-select" id="inputPassword6" onchange="changeColor3(this)"
                                                 name="outgoing_buffer">
                                                 <option value="Blue" @if ($entry->outgoing_buffer === 'Blue') selected @endif>
@@ -270,11 +303,11 @@
                                             </span>
                                         </div>
 
-                                        <div class="col-auto col-auto-c m-l-200" >
+                                        <div class="col-auto col-auto-c m-l-200" style="margin-right: 10px">
                                             <label for="inputPassword6" class="col-form-label">Core :</label>
                                         </div>
 
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="margin-right:0px;">
                                             <select class="form-select" id="inputPassword6" onchange="changeColor4(this)"
                                                 name="outgoing_core" style="margin-right: 10px">
                                                 <option value="Blue" @if ($entry->outgoing_core === 'Blue') selected @endif>

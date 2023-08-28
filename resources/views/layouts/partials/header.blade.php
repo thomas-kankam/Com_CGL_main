@@ -1,4 +1,15 @@
 <header class="topbar" data-navbarbg="skin5">
+    <style>
+
+    #respond{
+        width:50%;
+    }
+    @media screen and (min-width:768px) and (max-width: 913px) {
+    #respond{
+        width:22%;
+      }
+    }
+    </style>
     <nav class="navbar top-navbar navbar-expand-md navbar-dark">
         <div class="navbar-header" data-logobg="skin6">
             <!-- ============================================================== -->
@@ -8,7 +19,7 @@
                 <!-- Logo icon -->
                 <b class="logo-icon">
                     <!-- Dark Logo icon -->
-                    <img width="65%" src="{{ asset('assets/plugins/images/comsys.png') }}" />
+                    <img id="respond" src="{{ asset('assets/plugins/images/comsys.png') }}" />
                 </b>
                 <!--End Logo icon -->
                 <!--
